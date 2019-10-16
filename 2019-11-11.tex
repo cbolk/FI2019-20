@@ -1,0 +1,26 @@
+\subsection{Conta vocaboli}
+Scrivere un programma che chiede all'utente il nome di un file (al pi\`u 40 caratteri) di testo e conta e visualizza il numero di parole presenti nel file. Le parole sono separate esclusivamente da spazi e sono al pi\`u di 32 caratteri.
+
+\begin{tags}
+file ASCII. Accesso a file con contenuto di lunghezza non nota a priori.
+\end{tags}
+\getsol{srccode/contavocabolifile.c}
+
+Quest'altra soluzione non funziona: si finisce in un ciclo infinito. Per quanto il file sia finito, l'istruzione \texttt{fscanf} non cessa di essere eseguita e legge sempre l'ultimo vocabolo, restituendo 1.
+\getsol{srccode/contavocabolifile_no.c}
+
+
+\subsection{Quale lettera usare per un lipogramma}
+Scrivere un programma che chiede all'utente il nome di un file (al pi\`u 40 caratteri) di testo e conta e visualizza il numero di parole che iniziano con ciascuna lettera dell'alfabeto. I caratteri contenuti nel file sono solo minuscoli. Le parole sono separate esclusivamente da spazi e sono al pi\`u di 32 caratteri. 
+Visualizzare il messaggio: 
+\begin{verbatim}
+parole che iniziano con a: 10
+parole che iniziano con b: 3
+parole che iniziano con e: 14
+\end{verbatim}
+Non visualizzare alcun messaggio per le lettere che non hanno parole nel testo.
+
+\begin{tags}
+file ASCII. Accesso a file con contenuto di lunghezza non nota a priori. Contatori
+\end{tags}
+\getsol{srccode/containizialivocabolifile.c}

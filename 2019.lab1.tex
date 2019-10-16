@@ -1,0 +1,52 @@
+\documentclass[12pt]{article}
+\usepackage{classlog} % see geometry.pdf on how to lay out the page. There's lots.
+%\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\usepackage[left=2cm, right=2cm, top=2cm]{geometry}
+\geometry{a4paper} % or letter or a5paper or ... etc
+\usepackage{graphicx}
+% \geometry{landscape} % rotated page geometry
+% See the ``Article customise'' template for come common customisations
+\usepackage{amssymb}
+\usepackage{imakeidx}
+\usepackage[italian]{babel}
+\usepackage{fancyvrb}
+\usepackage{tikz}
+\usepackage{wrapfig}
+
+%\usepackage{lgrind}
+\usetikzlibrary{arrows,shapes,backgrounds}
+\usepackage{framed}
+\usepackage{enumerate}
+
+\renewenvironment{shaded}{%
+  \def\FrameCommand{\fboxsep=\FrameSep \colorbox{shadecolor}}%
+  \MakeFramed{\advance\hsize-\width \FrameRestore\FrameRestore}}%
+ {\endMakeFramed}
+
+\newcommand*{\mysep}[1]{%
+ \noindent\rule{\textwidth}{1pt}%
+}
+
+\newcommand*{\prosep}[1]{%
+ \noindent\rule{\textwidth}{0.75pt}%
+}
+\usepackage{lab}
+
+\DefineVerbatimEnvironment{coding}{Verbatim}%
+    {showspaces,showspaces,fontsize=\footnotesize,commandchars=\\\{\}}% showspaces and showtabs only for visualizing
+
+\pagestyle{empty}
+
+%%% BEGIN DOCUMENT
+\begin{document}
+%\maketitle
+
+%\pagenumbering{arabic} 
+\pagestyle{empty}
+
+\begin{labheader}{Fondamenti di Informatica $\diamond$ 2019-20}{1}{17-10-2019}
+\end{labheader}
+
+\input{2019-10-17.lab1}
+
+\end{document}

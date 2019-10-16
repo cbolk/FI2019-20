@@ -1,0 +1,119 @@
+\begin{exrev}{Numeri vicini}\stepcounter{numex}
+Scrivere un programma in C che chiede all'utente di inserire una sequenza di numeri interi terminata dallo 0 (lo 0 non fa parte della sequenza). Il programma ignora i valori negativi e valuta e stampa a video le coppie di numeri consecutivi che soddisfano tutte le condizioni che seguono:\begin{itemize}
+\item sono diversi tra di loro,
+\item sono entrambi numeri pari,
+\item il loro prodotto \`e un quadrato perfetto.
+\end{itemize}
+
+
+\begin{tags}
+algoritmo. numeri pari. quadrato perfetto
+\end{tags}
+
+\lstinputlisting[language=c]{srccode/adiacentivincolati.c}
+
+\end{exrev}
+
+\begin{exrev}{Distanza di Hamming}\stepcounter{numex}
+Scrivere un programma che acquisiti due sequenze di 10 bit ciascuna (forniti una cifra alla volta), calcola e visualizza il vettore della distanza di Hamming, ed infine la distanza. Un esempio di esecuzione \`e il seguente:
+\begin{verbatim}
+1 0 0 1 0 0 1 0 0 1
+1 1 1 1 0 0 0 1 0 1
+0 1 1 0 0 0 1 1 0 0   4
+\end{verbatim}
+
+\begin{tags}
+array monodimensionale. cicli a conteggio. costrutto \texttt{for}\index{for@\texttt{for}}.
+\end{tags}
+
+\lstinputlisting[language=c]{srccode/hamming.c}
+\end{exrev}
+
+\begin{exrev}{Carta di credito}\stepcounter{numex}
+Scrivere un programma che acquisisce un numero di carta di credito Visa costituito da 13 o 16 caratteri numerici e verifica che si tratti di un numero di carta valido oppure no. Nel primo caso visualizza 1, altrimenti 0. L'algoritmo che verifica la correttezza ''sintattica`` di un numero (inventato da Hans Peter Luhn di IBM) \`e il seguente: 
+\begin{wrapfigure}{r}{0.25\textwidth}
+  \begin{center}%\vspace{-2em}
+    \includegraphics[width=\linewidth]{srccode/cartalupin.png}
+  \end{center}\vspace{-4em}
+\end{wrapfigure}
+
+\begin{itemize}
+\item moltiplicare una cifra si, una no, per 2 partendo dalla penultima a destra, quindi sommare tali cifre,
+\item sommare a tale valore, le cifre che non sono state moltiplicate per 2,
+\item se il valore ottenuto \`e un multiplo di 10, il numero \`e valido.
+\end{itemize}
+
+
+
+Per esempio, si consideri il numero di carta di credito seguente: $4003600000000014$.
+\begin{itemize}
+\item moltiplicare una cifra si, una no, per 2 partendo dalla penultima a destra, quindi sommare tali cifre (sono sottolineate le cifre da moltiplicare per 2):
+
+\underline{4}0\underline{0}3\underline{6}0\underline{0}0\underline{0}0\underline{0}0\underline{0}0\underline{1}4
+
+si moltiplica ogni cifra per 2:
+
+$1\times2 + 0\times2 + 0\times2 + 0\times2 + 0\times2 + 6\times2 + 0\times2 + 4\times2$
+
+si ottiene:
+
+$2 + 0 + 0 + 0 + 0 + 12 + 0 + 8$
+
+si sommano le cifre:
+
+$2 + 0 + 0 + 0 + 0 + 1 + 2 + 0 + 8 = 13$
+
+\item sommare a tale valore, le cifre che non sono state moltiplicate per 2,
+
+$13 + 4 + 0 + 0 + 0 + 0 + 0 + 3 + 0 = 20$
+
+\item se il valore ottenuto \`e un multiplo di 10, il numero \`e valido: in questo caso le \`e.
+\end{itemize}
+
+Potete provare con alcuni numeri suggeriti da PayPal: 4111111111111111, 4012888888881881, 4222222111212222.
+
+\begin{tags}
+array di caratteri. corrispondenza carattere numerico valore. cicli a conteggio. cifre di un numero.
+\end{tags}
+\lstinputlisting[language=c]{srccode/cartadicredito.c}
+\end{exrev}
+
+\begin{exrev}{Media mobile}\stepcounter{numex}
+Si scriva un programma che acquisiti 100 valori interi ed un valore intero \texttt{n} calcola e visualizza l'array di valori che costituiscono la media mobile dei dati in ingresso di finestra \texttt{n}. L'elemento \texttt{i}-esimo della media mobile viene calcolato come media degli \texttt{n} valori del vettore in ingresso che precedono e includono l'elemento \texttt{i}. Se l'elemento \texttt{i} \`e preceduto da meno di \texttt{n}-1 valori, la media si calcola su quelli.
+
+
+\begin{tags}
+array monodimensionali. calcolo della media.
+\end{tags}
+
+\begin{esame}
+03/07/2017 (variante)
+\end{esame}
+
+\lstinputlisting[language=c]{srccode/movingavg.c}
+\end{exrev}
+
+\begin{exrev}{Conta caratteri}\stepcounter{numex}
+Scrivere un programma in C che acquisisca una sequenza \texttt{str} di 20 caratteri. Per ogni carattere \texttt{car} contenuto nella stringa \texttt{str}, a partire dall'ultimo fino ad arrivare al primo, il programma visualizza (senza lasciare spazi) il carattere \texttt{car}, seguito dal numero di volte in cui compare consecutivamente in quel punto della stringa. Per esempio, se l'utente inserisce \texttt{aabbbddbbbbhhhhhzzzz} il programma visualizza \texttt{z4h5b4d2b3a2}.
+
+
+\begin{tags}
+array monodimensionali. caratteri. algoritmo.
+\end{tags}
+
+\begin{esame}
+03/07/2017 (variante)
+\end{esame}
+
+\lstinputlisting[language=c]{srccode/contacar1.c}
+
+\blind{Versione alternativa}
+
+\lstinputlisting[language=c]{srccode/contacar2.c}
+
+\blind{Versione alternativa con il costrutto \texttt{for}}
+
+\lstinputlisting[language=c]{srccode/contacar3.c}
+\end{exrev}
+
+

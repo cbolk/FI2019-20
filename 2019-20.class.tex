@@ -1,0 +1,364 @@
+\documentclass[12pt]{book}
+\usepackage{paralist}
+\usepackage{classlog} % see geometry.pdf on how to lay out the page. There's lots.
+%\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\usepackage[left=2cm, right=2cm, top=2cm]{geometry}
+\geometry{a4paper} % or letter or a5paper or ... etc
+\usepackage{graphicx}
+% \geometry{landscape} % rotated page geometry
+% See the ``Article customise'' template for come common customisations
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{imakeidx}
+\usepackage[italian]{babel}
+\usepackage{fancyvrb}
+\usepackage[table]{xcolor}
+\usepackage{tikz}
+\usepackage{labinbook}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage[final]{pdfpages}
+%\usepackage{nomencl}
+%\makenomenclature
+%\usepackage{polimiexam}
+%\usepackage{lgrind}
+\usetikzlibrary{arrows,shapes,backgrounds}
+
+\makeindex
+
+\title{\huge{\textbf{Fondamenti di Informatica} $\diamond$ \huge{\textbf{2019-20}}} \ \\ \ \\ \Large{\textbf{Lezioni, Esercitazioni e Laboratorio}}
+\author{Cristiana Bolchini}}
+\date{} % delete this line to display the current date
+
+
+\usepackage{framed}
+\usepackage{enumerate}
+
+\renewenvironment{shaded}{%
+  \def\FrameCommand{\fboxsep=\FrameSep \colorbox{shadecolor}}%
+  \MakeFramed{\advance\hsize-\width \FrameRestore\FrameRestore}}%
+ {\endMakeFramed}
+
+\newenvironment{tags}[1][198,226,255]{
+  \definecolor{shadecolor}{RGB}{#1}%
+  \begin{snugshade}%
+%  {\small 
+  {\small \noindent\textbf{Argomenti:}}
+}{%
+%  }
+    \end{snugshade}%
+}
+
+\newenvironment{esame}[1][240,244,193]{
+  \definecolor{shadecolor}{RGB}{#1}%
+  \begin{snugshade}%
+%  {\small 
+  {\small \noindent\textit{Tratto dal tema d'esame del}}
+}{%
+%  }
+    \end{snugshade}%
+}
+
+\newcommand*{\mysep}[1]{%
+ \noindent\rule{\textwidth}{1pt}%
+}
+
+\newcommand*{\prosep}[1]{%
+ \noindent\rule{\textwidth}{0.75pt}%
+}
+
+\DefineVerbatimEnvironment{coding}{Verbatim}%
+    {showspaces,showspaces,fontsize=\footnotesize,commandchars=\\\{\}}% showspaces and showtabs only for visualizing
+
+\pagestyle{empty}
+
+%%% BEGIN DOCUMENT
+\begin{document}
+\setcounter{numex}{1}
+\setcounter{numexp}{1}
+\maketitle
+%\begin{tikzpicture}[show background grid]
+%\node[inner sep=0pt] at (0,0) {\includegraphics[width=\paperwidth,height=\paperheight]{pattern.png}};
+%\end{tikzpicture}
+%\vspace{60mm}
+%\begin{center}
+%{\huge{\textbf{Fondamenti di Informatica}} $\diamond$ {\huge{\textbf{2017-18}}}}
+%
+%\vspace{20mm}
+%
+%{\Large{\textbf{Lezioni, Esercitazioni e Laboratorio}}}
+%
+%\vspace{10mm}
+%
+%{\Large{Cristiana Bolchini}}
+%\end{center}
+
+%\nomenclature{\texttt{while}}{costrutto ciclico a condizione iniziale}
+%\nomenclature{\texttt{do-while}}{costrutto ciclico a condizione finale}
+%\nomenclature{\texttt{for}}{costrutto ciclico a conteggio, a condizione iniziale}
+
+
+
+\pagenumbering{Roman} 
+\sectionbreak
+
+\tableofcontents
+
+
+\sectionbreak
+\pagenumbering{arabic} 
+\pagestyle{main}
+
+
+
+%\newcommand{\nex}{\theex~\refstepcounter{ex}}
+\foo{Z}{introduzione al corso}{16-09-2019}{}
+%\input{2017-09-16}
+
+\foo{Z}{la rappresentazione dell'informazione -- parte 1}{17-09-2019}{}
+%\input{2019-09-17}
+
+\foo{Z}{la rappresentazione dell'informazione -- parte 2}{19-09-2019}{}
+%\input{2019-09-19}
+%
+\foo{Z}{algoritmi}{23-09-2019}{}
+\input{2019-09-23}
+
+\foo{Z}{introduzione al C: struttura, tipi, operatori}{24-09-2019}{}
+\input{2019-09-24}
+
+\foo{Z}{costrutto di selezione \texttt{if}, \texttt{if-else}, \texttt{if-else-if}}{26-09-2019}{}
+\input{2019-09-26}
+
+%
+\foo{L}{introduzione all'ambiente di lavoro}{26-09-2019}{}
+\input{2019-09-26.lab0}
+
+\foo{Z}{costrutto cicliclo \texttt{while} e \texttt{do-while}}{30-09-2019}{}
+\input{2019-09-30}
+%
+
+\foo{E}{costrutti elementari di controllo}{01-10-2019}{}
+\input{2019-10-01}
+
+\foo{X}{lauree}{03-10-2019}{}
+%\input{2019-10-03.if}
+
+%
+\foo{Z}{array monodimensionali e ciclo \texttt{for}}{07-10-2019}{}
+\input{2019-10-07}
+
+%
+\foo{E}{array monodimensionali}{08-10-2019}{}
+\input{2019-10-08}
+%
+\foo{Z}{array bidimensionali, \texttt{struct} e \texttt{typedef}}{10-10-2019}{}
+\input{2019-10-10}
+
+\foo{Z}{stringhe}{14-10-2019}{}
+\input{2019-10-14}
+
+\foo{F}{array}{15-10-2019}{}
+\input{2019-10-15}
+
+\foo{E}{array e stringhe}{17-10-2019}{}
+\input{2019-10-17}
+
+\foo{L}{algoritmi e array}{17-10-2019}{}
+\input{2019-10-17.lab1}
+
+\foo{Z}{sottoprogrammi}{21-10-2019}{}
+%\input{2019-10-21}
+
+\foo{Z}{sottoprogrammi}{22-10-2019}{}
+%\input{2019-10-22.}
+
+\foo{E}{sottoprogrammi}{24-10-2017}{}
+%\input{2019-10-24}
+
+\foo{L}{sottoprogrammi}{24-10-2019}{}
+%\input{2019-10-24.lab2}
+
+\foo{E}{sottoprogrammi}{28-10-2019}{CB}
+%\input{2019-10-28}
+
+\foo{E}{sottoprogrammi}{29-10-2019}{CB}
+%\input{2019-10-29}
+
+\foo{F}{array, stringhe}{31-10-2019}{}
+%\input{2019-10-31}
+
+\foo{X}{prove in itinere}{04-11-2017}{}
+\foo{X}{prove in itinere}{05-11-2017}{}
+
+\foo{Z}{file di testo e binari}{07-11-2019}{}
+%\input{2019-11-07}
+
+\foo{E}{file}{11-11-2019}{CB}
+\input{2019-11-11}
+
+\foo{Z}{allocazione dinamica}{12-11-2019}{}
+%\input{2019-11-12}
+
+\foo{E}{allocazione dinamica}{14-11-2019}{}
+%\input{2019-11-14}
+
+\foo{L}{sottoprogrammi}{14-11-2019}{}
+%\input{2019-11-14.lab3}
+
+\foo{Z}{liste concatenate semplici}{18-11-2019}{}
+%\input{2019-11-18}
+
+\foo{Z}{liste concatenate semplici}{19-11-2019}{}
+%\input{2019-11-19}
+
+\foo{E}{liste concatenate semplici}{21-11-2019}{}
+%\input{2019-11-21}
+
+\foo{L}{lavoro di gruppo}{21-11-2019}{}
+%\input{2019-11-21.lab4}
+
+\foo{Z}{ricorsione}{25-11-2019}{}
+%\input{2019-11-25}
+
+\foo{E}{ricorsione}{26-11-2019}{}
+%\input{2019-11-26}
+
+\foo{E}{riepilogo}{28-11-2019}{}
+%\input{2019-11-28}
+
+\foo{E}{riepilogo}{02-12-2019}{}
+%\input{2019-12-02}
+
+\foo{F}{riepilogo}{03-12-2019}{}
+%\input{2019-12-03}
+
+\foo{Z}{parametri da riga di comando \texttt{argv}, \texttt{argc} e \texttt{getopt}}{05-12-2019}{}
+%\input{2019-12-05.liste}
+
+\foo{L}{lavoro di gruppo}{05-12-2019}{}
+%\input{2019-12-05.lab5}
+
+\foo{E}{liste ripasso}{09-12-2019}{CB}
+%\input{2019-12-09}
+
+\foo{Z}{architettura del calcolatore (hw \& so) -- parte 1}{10-12-2019}{}
+%\input{2019-12-10}
+
+\foo{Z}{architettura del calcolatore (hw \& so) -- parte 2}{12-12-2019}{}
+%\input{2019-12-11}
+
+
+\section{Analisi esercizi: partecipazione}
+\begin{center}
+%    \includegraphics[width=0.9\textwidth]{./flippedExv2h.png}
+\end{center}
+
+%
+%\foo{E}{array}{12-10-2017}{}
+%\input{2017-10-12.array}
+%
+
+%
+%\foo{E}{array e struct}{17-10-2017}{}
+%\input{2017-10-17.arrayestruct}
+%
+%\foo{L}{algoritmi e array}{18-10-2017}{}
+%\input{2017-10-18.lab}
+%
+%\foo{Z}{stringhe}{19-10-2017}{}
+%\input{2017-10-19.stringhe}
+%
+%\foo{E}{stringhe e strutture}{23-10-2017}{LDT}
+%\input{2017-10-23.mixfinoastringhe}
+%
+%\foo{R}{architettura del calcolatore (hw \& so) -- parte 1}{24-10-2017}{LDT}
+%
+%\foo{R}{architettura del calcolatore (hw \& so) -- parte 2}{26-10-2017}{LDT}
+%
+%\foo{Z}{sottoprogrammi}{30-10-2017}{}
+%\input{2017-10-30.sottoprogrammi}
+%
+%\foo{Z}{sottoprogrammi: passaggio parametri e RDA}{31-10-2017}{}
+%\input{2017-10-31.sottoprogrammi}
+%
+%\foo{E}{sottoprogrammi}{02-11-2017}{LDT}
+%\input{2017-11-02.sottoprogrammi}
+%
+%\foo{E}{sottoprogrammi}{06-11-2017}{}
+%\input{2017-11-06.sottoprogrammi}
+%
+%\foo{E}{ricorsione}{07-11-2017}{}
+%\input{2017-11-07.ricorsione}
+%
+%\foo{E}{file}{09-11-2017}{}
+%\input{2017-11-09.file}
+%
+%\foo{E}{file}{16-11-2017}{}
+%\input{2017-11-16.file}
+%
+%\foo{Z}{allocazione dinamica}{16-11-2017}{}
+%\input{2017-11-16.allocazionedinamica}
+%
+%\foo{E}{file, ricorsione e allocazione dinamica}{20-11-2017}{LDT}
+%\input{2017-11-20.fileeallocazionedinamica}
+%
+%\foo{E}{prova d'esame}{21-11-2017}{}
+%\input{2017-11-21.provaesame}
+%
+%\foo{L}{sottoprogrammi}{22-11-2017}{}
+%\input{2017-11-22.lab}
+%
+%\foo{Z}{liste concatenate}{27-11-2017}{}
+%\input{2017-11-27.liste}
+%
+%\foo{Z}{liste concatenate}{28-11-2017}{}
+%\input{2017-11-28.liste}
+%
+%\foo{L}{sottoprogrammi}{29-11-2017}{}
+%\input{2017-11-29.lab}
+%\sectionbreak
+%
+%\foo{E}{liste concatenate}{30-11-2017}{}
+%\input{2017-11-30.liste}
+%
+%\foo{E}{liste concatenate}{04-12-2017}{LDT}
+%\input{2017-12-04.liste}
+%
+%\foo{Z}{parametri da riga di comando}{05-12-2017}{}
+%\input{2017-12-05.argvargc}
+%
+%\foo{L}{temi d'esame}{06-12-2017}{}
+%\input{2017-12-06.lab}
+%\sectionbreak
+%
+%\foo{E}{temi d'esame}{11-12-2017}{}
+%\input{2017-12-11.temidesame}
+%
+%\foo{E}{temi d'esame}{12-12-2017}{LDT}
+%\input{2017-12-12.temidesame}
+%
+%\foo{L}{temi d'esame}{13-12-2017}{}
+%\input{2017-12-13.lab}
+%\sectionbreak
+%
+%\foo{Z}{costrutto \texttt{switch} e linguaggio assembly}{14-12-2017}{}
+%\input{2017-12-14.assemblyswitch}
+%
+%\foo{Z}{temi d'esame}{14-12-2017}{}
+%\input{2017-12-14.temidesame}
+
+%\foo{E}{temi d'esame}{18-12-2017}{}
+%\input{2017-12-18.temidesame}
+
+\pagebreak
+
+Numero esercizi svolti: \thenumex
+
+Numero esercizi proposti: \thenumexp
+
+\printindex
+
+%\printnomenclature
+
+\end{document}

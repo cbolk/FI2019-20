@@ -1,0 +1,144 @@
+\begin{labex}{Fattori}
+Scrivere un programma che acquisisce due numeri interi relativi e visualizza 1 se uno \`e un divisore dell'altro o viceversa, 0 altrimenti.
+Dopo il valore visualizzato, mettere un \texttt{'a-capo'}.
+
+\begin{labexinout}
+\labexin{due numeri interi}
+\labexout{un intero (seguito da un carattere \texttt{'a-capo'})}
+\end{labexinout}
+
+\begin{labexcases}
+\labexcin{5542 18}
+\labexcout{0}
+
+\labexcin{5542 17}
+\labexcout{1}
+
+\labexcin{13 1950}
+\labexcout{1}
+\end{labexcases}
+
+\getsol{srccode/fattori.c}
+
+\end{labex}
+
+
+\begin{labex}{Padding}
+Si vuole rappresentare a video un valore naturale \texttt{num} utilizzando un numero a scelta di cifre \texttt{k} inserendo 0 nelle posizioni pi\`u significative, fino a raggiungere la dimensione desiderata. 
+Per esempio, volendo rappresentare \texttt{842} su \texttt{5} cifre, si ottiene \texttt{00842}.
+
+Scrivere un programma che acquisisce due valori interi entrambi strettamente positivi (e finch\'e non \`e cos\`i richiede il valore che non rispetta il vincolo) num e \texttt{k}, quindi rappresenta \texttt{num} su \texttt{k} cifre. Se \texttt{k} e' minore del numero di cifre presenti in \texttt{num}, il programma visualizza il valore \texttt{num} come \`e. 
+Dopo il valore visualizzato, mettere un \texttt{'a-capo'}.
+
+%\begin{tags}
+%\texttt{if}\index{if@\texttt{if}}
+%\end{tags}
+
+\begin{labexinout}
+\labexin{due numeri interi (da verificare)}
+\labexout{un intero (seguito da un carattere \texttt{'a-capo'})}
+\end{labexinout}
+
+\begin{labexcases}
+\labexcin{11304 9}
+\labexcout{000011304}
+
+\labexcin{-4 9000 -5 -2 2}
+\labexcout{9000}
+
+\labexcin{1 1}
+\labexcout{1}
+\end{labexcases}
+
+
+\getsol{srccode/padding.c}
+
+\end{labex}
+
+\begin{labex}{Super Mario}
+
+\begin{wrapfigure}{r}{0.25\textwidth}
+  \begin{center}\vspace{-2em}
+    \includegraphics[width=\linewidth]{srccode/pyramids-mario.png}
+  \end{center}\vspace{-8em}
+\end{wrapfigure}
+
+
+
+Nella preistoria dei videogiochi in Super Mario della Nintendo, Mario deve saltare da una piramide di blocchi a quella adiacente.
+Proviamo a ricreare le stesse piramidi in C, in testo, utilizzando il carattere cancelletto ($\#$) come blocco, come riportato di seguito. In realt\`a il carattere $\#$ \`e pi\`u alto che largo, quindi le piramidi saranno un po' pi\`u alte.
+
+\begin{verbatim}
+   #  #
+  ##  ##
+ ###  ###
+####  ####
+\end{verbatim}
+
+Notate che lo spazio tra le due piramidi \`e sempre costituito da \textbf{2} spazi, indipendentemente dall'altezza delle piramidi. Inoltre, alla fine delle piramidi \textbf{non ci devono essere spazi}.
+L'utente inserisce l'altezza delle piramidi, che deve essere un valore strettamente positivo e non superiore a 16. In caso l'utente inserisca un valore che non rispetta questi vincoli, la richiesta viene ripetuta.
+
+\begin{labexinout}
+\labexin{un numero intero (da verificare)}
+\labexout{una sequenza di caratteri}
+\end{labexinout}
+
+
+\getsol{srccode/mario.c}
+
+\end{labex}
+
+\begin{labex}{Scorrimento a destra -- rightshift}
+Scrivere un programma che acquisita una stringa di al pi\`u 10 caratteri, modifica la stringa in modo tale che la stringa finale sia quella iniziale, fatta scorrere a destra di una posizione, con l'ultimo carattere riportato in testa. Se per esempio la sequenza iniziale \`e \texttt{attraverso}, la stringa finale sar\`a \texttt{oattravers}. 
+Una volta modificata la stringa memorizzata, visualizzarla e farla seguire da un carattere \texttt{'a-capo'}.
+
+\begin{labexinout}
+\labexin{al pi\`u 10 caratteri}
+\labexout{al pi\`u 10 caratteri (seguiti da un carattere \texttt{'a-capo'})}
+\end{labexinout}
+
+\begin{labexcases}
+\labexcin{attraverso}
+\labexcout{oattravers}
+
+\labexcin{ananas}
+\labexcout{sanana}
+
+\labexcin{trampolini}
+\labexcout{itrampolin}
+\end{labexcases}
+
+\getsol{srccode/rightshift.c}
+
+\end{labex}
+
+
+\begin{labex}{Troncabile primo a destra}
+Scrivere un programma che acquisisce un valore intero strettamente positivo, e finch\'e non \`e tale lo richiede. Il programma analizza il valore intero e visualizza 1 nel caso sia un troncabile primo a destra, 0 altrimenti.
+Un numero si dice troncabile primo a destra se il numero stesso e tutti i numeri che si ottengono eliminando una alla volta la cifra meno significativa del numero analizzato al passo precedente, sono numeri primi.
+Per esempio, se il numero iniziale \`e 719, i numeri che si ottengono ``eliminando una alla volta la cifra meno significativa del numero analizzato al passo precedente ..'' sono 71 e 7.
+Dopo il valore visualizzato, mettere un \texttt{'a-capo'}.
+
+\begin{labexinout}
+\labexin{un intero (da verificare)}
+\labexout{un intero (seguito da un carattere \texttt{'a-capo'})}
+\end{labexinout}
+
+\begin{labexcases}
+\labexcin{719}
+\labexcout{1}
+
+\labexcin{473}
+\labexcout{0}
+
+\labexcin{-42 -18 311111}
+\labexcout{0}
+
+\labexcin{3137}
+\labexcout{1}
+\end{labexcases}
+
+\getsol{srccode/troncabileprimodx.c}
+
+\end{labex}
+

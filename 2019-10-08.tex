@@ -1,0 +1,47 @@
+\subsection{Numero allo specchio}\stepcounter{numex}
+Scrivere un programma in C che acquisito un valore intero calcola e visualizza il valore ottenuto invertendo l'ordine delle cifre che lo compongono. Ad esempio, se il programma acquisisce il valore 251, il programma visualizza 152. Si ipotizzi (non si devono far verifiche in merito) che il valore acquisito non dia problemi di overflow e sia senz'altro strettamente positivo. Se l'utente inserisce il valore 1000, il programma visualizza 1 (questo perch\`e CALCOLA e poi visualizza). Se l'utente inserisce 9001 il programma visualizza 1009.
+
+\begin{tags}
+algoritmo.
+\end{tags}
+
+\begin{esame}
+04/09/2015 (Variante)
+\end{esame}
+   
+\lstinputlisting[language=c]{srccode/mirrornum.c}
+
+
+\subsection{Conta lettere}\stepcounter{numex}
+Scrivere un programma\index{Programmi!Conta occorrenze caratteri} che acquisisce una sequenza di 50 caratteri e per ogni carattere letto mostra quante volte compare nella sequenza, mostrandoli in ordine alfabetico. Si consideri che i caratteri inseriti siano tutti caratteri minuscoli.
+Per esempio, se l'utente inserisce \texttt{sequenzadiprova} (solo 16 caratteri in questo caso, per questioni di leggibilit\`a), il programma visualizza
+\begin{verbatim}
+a 2
+d 1
+e 2
+i 1
+n 1
+o 1
+p 1
+q 1
+r 1
+s 1
+u 1
+v 1
+z 1
+\end{verbatim}
+
+\begin{tags}
+array monodimensionale. cicli a conteggio. contatori di occorrenze. codice ASCII di un carattere. costrutto \texttt{for}\index{for@\texttt{for}}.
+\end{tags}
+
+\lstinputlisting[language=c]{srccode/contacarinseq.c}
+
+\subsection{Niente primi}\stepcounter{numex}
+Scrivere un programma che acquisisce una sequenza di al pi\`u 50 valori interi strettamente maggiori di 1 e che si ritiene terminata quando l'utente inserisce un valore minore o uguale a 1. Il programma, una volta acquisiti i dati, visualizza 1 se tra di essi non c'\`e alcun numero primo\index{Programmi!Numero primo}, 0 altrimenti.
+
+\begin{tags}
+array monodimensionale. cicli annidati. numero primo.
+\end{tags}
+
+\lstinputlisting[language=c]{srccode/noprime.c}

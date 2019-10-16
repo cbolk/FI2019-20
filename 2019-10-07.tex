@@ -1,0 +1,62 @@
+\begin{itemize}
+\item array monodimensionali
+\item dati di tipo omogeneo
+\item dimensione dell'array costante e nota a priori
+\item indice degli elementi da \texttt{0} a \texttt{dimensione} - 1
+\item costrutto ciclico a conteggio \texttt{for} (a condizione iniziale)
+\item le tre parti del costrutto
+\begin{itemize}
+	\item istruzioni prima di iniziare il ciclo
+	\item condizioni, semplici e composte
+	\item istruzioni a chiusura del corpo del ciclo
+  \end{itemize}
+\item separatore per le istruzioni nella prima e terza parte del costrutto
+\item parti sono facoltative
+\end{itemize}
+
+\mysep{}
+
+
+\subsection{5 dati in ingresso in ordine inverso}\stepcounter{numex}
+Scrivere un programma che acquisiti 5 numeri interi li visualizza in ordine inverso.
+
+\begin{tags}
+array monodimensionale. cicli a conteggio. costrutto \texttt{for}\index{for@\texttt{for}}.
+\end{tags}
+
+\lstinputlisting[language=c]{srccode/rev5noarray.c}
+
+Versione con array.
+
+\lstinputlisting[language=c]{srccode/rev5.c}
+
+
+\subsection{Sopra soglia}\stepcounter{numex}
+Scrivere un programma che acquisisce 20 valori interi, quindi un intero valore soglia e calcola e visualizza in numero di campioni strettamente superiori alla soglia.
+
+\lstinputlisting[language=c]{srccode/soprasoglia.c}
+
+Versione con il costrutto \texttt{for}.
+
+\lstinputlisting[language=c]{srccode/soprasoglia-for.c}
+
+\prosep{}
+
+\subsection{Conversione in binario -- Proposto}\stepcounter{numexp}
+Scrivere un programma che acquisisce un valore compreso tra 0 e 1023, estremi inclusi e finch\'e non \`e tale lo richiede. Quindi effettua la conversione in base 2 e la visualizza.
+
+\begin{tags}
+algoritmo. validazione ingresso. dimensione dell'array.
+\end{tags}
+
+\lstinputlisting[language=c]{srccode/dec2bin.c}
+
+Versione alternativa con ciclo \texttt{do-while}.
+
+\lstinputlisting[language=c]{srccode/dec2bin2.c}
+
+Versione alternativa in cui si visualizza il numero sul numero completo di bit massimo.
+
+\lstinputlisting[language=c]{srccode/dec2binallbits.c}
+
+

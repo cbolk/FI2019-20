@@ -1,0 +1,42 @@
+\begin{itemize}
+\item costrutto ciclico \texttt{while}
+    \begin{itemize}
+    \item valutazione dell'espressione tra parentesi
+    \item esecuzione del corpo solo se l'espressione \`e vera
+    \item l'istruzione che aggiorna l'espressione  \`e tipicamente l'ultima del corpo del ciclo
+    \end{itemize}
+\item costrutto ciclico \texttt{do-while}
+    \begin{itemize}
+    \item valutazione dell'espressione tra parentesi
+    \item esecuzione del corpo almeno una volta 
+    \end{itemize}
+\end{itemize}
+
+\mysep{}
+
+\subsection{Minimo, massimo e valor medio}\stepcounter{numex}
+Scrivere un programma che acquisisce una sequenza di 53 valori interi e calcola e visualizza valor minimo, valor massimo e media dei valori. 
+
+\begin{tags}
+costrutto \texttt{while}\index{while@\texttt{while}}
+\end{tags}
+
+\lstinputlisting[language=c]{srccode/minmaxmed53.c}
+
+\subsection{Fattoriale}\stepcounter{numex}
+Chiedere all'utente un valore non negativo, e fino a quando non \`e tale ripetere la richiesta, quindi calcolare e visualizzare il fattoriale\index{Programmi!Fattoriale}.
+
+\begin{tags}
+costrutto \texttt{while}\index{while@\texttt{while}}, costrutto \texttt{do-while}\index{do-while@\texttt{do-while}}.
+\end{tags}
+
+\lstinputlisting[language=c]{srccode/fattoriale.c}
+
+versione alternativa che distingue il caso limite $num=0$ e $num=1$ inutilmente.
+
+\lstinputlisting[language=c]{srccode/fattorialeno.c}
+
+versione alternativa che distrugge inutilmente il valore iniziale senza un reale risparmio
+
+\lstinputlisting[language=c]{srccode/fattorialeno2.c}
+

@@ -1,0 +1,131 @@
+
+
+\newenvironment{labheader}[3]{
+	\begin{center}
+	%\vskip 1.0ex
+	\textbf{\large #1}\\
+	Laboratorio \##2 del #3
+}{
+	\end{center}
+	\vskip 1.5ex
+}
+
+\newenvironment{exrevheader}[3]{
+	\begin{center}
+	%\vskip 1.0ex
+	\textbf{\large #1}\\
+	Esercitazione - Analisi delle soluzioni \##2 del #3
+}{
+	\end{center}
+	\vskip 1.5ex
+}
+
+
+\newenvironment{labex}[1]{
+	\definecolor{shadecolor}{RGB}{242, 242, 243}
+	%\rule{\textwidth}{0.5pt}
+	\begin{minipage}{\textwidth}
+	\begin{snugshade}
+	\textbf{#1}
+	\end{snugshade}
+	\small
+}{
+	\end{minipage}
+	\rule{\textwidth}{0.5pt}
+	\vskip 1.0ex
+}
+
+\newenvironment{exrev}[1]{
+	\definecolor{shadecolor}{RGB}{242, 242, 243}
+	%\rule{\textwidth}{0.5pt}
+	\begin{minipage}{\textwidth}
+	\begin{snugshade}
+	\textbf{#1}
+	\end{snugshade}
+	\small
+}{
+	\end{minipage}
+	\rule{\textwidth}{0.5pt}
+	\vskip 1.0ex
+}
+
+\newcommand{\getsol}[1]{
+}
+
+\newcommand{\blind}[1]{
+}
+
+\newenvironment{labexinout}{
+	\vskip 1.0ex
+	\textbf{Ingresso/Uscita:}\\
+}{
+	%\vskip 1.0ex
+}
+
+\newcommand{\labexin}[1]{
+		\textbf{input:}~\texttt{#1}\\
+}
+\newcommand{\labexout}[1]{
+		\textbf{output:}~\texttt{#1}\\
+}
+
+\newenvironment{labexcases}{
+	\vskip 0.5ex
+	\begin{minipage}{0.4\textwidth}
+	\textbf{Alcuni casi di test per il collaudo:}\\
+	\footnotesize
+%	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{ll}
+}{
+	\end{tabular}
+	\end{minipage}
+	%\vskip 1.0ex
+}
+
+
+\newcommand{\labexcin}[1]{
+		\textbf{input:} & \texttt{#1} \\
+		%~
+}
+\newcommand{\labexcinextra}[1]{
+		 & \texttt{#1} \\
+		%~
+}
+\newcommand{\labexcout}[1]{
+		\textbf{output:} & \texttt{#1} \\[5pt]
+		%\vskip 0.3ex
+}
+\newcommand{\labexcoutlong}[1]{
+		\textbf{output:} & \texttt{#1} \\
+		%\vskip 0.3ex
+}
+
+
+%% FROM main.tex
+
+\renewenvironment{shaded}{%
+  \def\FrameCommand{\fboxsep=\FrameSep \colorbox{shadecolor}}%
+  \MakeFramed{\advance\hsize-\width \FrameRestore\FrameRestore}}%
+ {\endMakeFramed}
+
+
+
+\newenvironment{tags}[1][198,226,255]{
+  \definecolor{shadecolor}{RGB}{#1}%
+  \begin{snugshade}%
+%  {\small 
+  {\small \noindent\textbf{Argomenti:}}
+}{%
+%  }
+    \end{snugshade}%
+}
+
+\newenvironment{esame}[1][240,244,193]{
+  \definecolor{shadecolor}{RGB}{#1}%
+  \begin{snugshade}%
+%  {\small 
+  {\small \noindent\textit{Tratto dal tema d'esame del}}
+}{%
+%  }
+    \end{snugshade}%
+}

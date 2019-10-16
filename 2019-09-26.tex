@@ -1,0 +1,55 @@
+\begin{itemize}
+\item cast implicito ed esplicito
+\item costrutto di selezione \texttt{if}, \texttt{if-else}, \texttt{if-else-if}
+    \begin{itemize}
+    \item valutazione dell'espressione tra parentesi
+    \item \texttt{if (a)} equivale a \texttt{if(a != 0)} e \texttt{if(!a)} equivale \texttt{if(0 == a)} 
+    \item attenzione al \texttt{==} (meglio scrivere \texttt{if(\_costante\_ == \_variabile\_)})
+    \item semantica di \texttt{if(a = b)}
+    \item ordine di valutazione delle condizioni composte
+    \item relazione tra \texttt{else} e \texttt{if} in assenza di parentesi
+    \end{itemize}
+\item De Morgan
+\end{itemize}
+
+\mysep{}
+
+\subsection{Positivo, negativo o nullo}\stepcounter{numex}
+Scrivere un programma che acquisito un valore visualizza \texttt{+} se positivo, \texttt{-} se negativo, \texttt{\ } altrimenti, seguito da un carattere a-capo \texttt{'\textbackslash n'}.
+
+\begin{tags}
+costrutto \texttt{if}\index{if@\texttt{if}}
+\end{tags}
+
+\lstinputlisting[language=c]{srccode/posnegnul.c}
+
+Versione alternativa.
+
+\lstinputlisting[language=c]{srccode/posnegnul.v2.c}
+
+Versione con \texttt{\#define}.
+
+\lstinputlisting[language=c]{srccode/posnegnul.v3.c}
+
+\subsection{Anno bisestile}\stepcounter{numex}
+Scrivere un programma che acquisito un valore intero positivo che rappresenta un anno, visualizza 1 se l'anno \`e bisestile\index{Programmi!Anno bisestile}, 0 altrimenti.
+
+\begin{tags}
+algoritmo. divisore/multiplo\index{divisore/multiplo}.
+\end{tags}
+
+\lstinputlisting[language=c]{srccode/bisestile.c}
+
+\prosep{}
+
+\subsection{Terna pitagorica\index{Programmi!Terna pitagorica} -- Proposto}\stepcounter{numexp}
+Scrivere un programma che acquisiti tre valori interi visualizzi 1 se costituiscono una terna pitagorica, 0 altrimenti.
+
+\subsection{Ordinamento crescente/decrescente -- Proposto}\stepcounter{numexp}
+Scrivere un programma che acquisisca un carattere e tre valori interi. Se il carattere \`e \texttt{+} visualizza i tre valori in ordine crescente, se \`e \texttt{-} li visualizza in ordine decrescente.
+
+\begin{tags}
+costrutto \texttt{if}\index{if@\texttt{if}}. algoritmo.
+\end{tags}
+
+\lstinputlisting[language=c]{srccode/num3ordinatiupdown.c}

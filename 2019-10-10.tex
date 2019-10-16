@@ -1,0 +1,76 @@
+\begin{itemize}
+\item array pluri-dimensionali: dimensione 2
+\begin{itemize}
+\item scansione mediante due cicli annidati
+\item linearizzazione della memoria
+\end{itemize}
+\item \texttt{struct}    \begin{itemize}
+	\item nome facoltativo, ma sempre utilizzato
+	\item array di \texttt{struct}
+	\item \texttt{struct} con campo array
+    \end{itemize}
+\item \texttt{typedef}
+\end{itemize}
+
+\mysep{}
+
+%\subsection{Palindrome}
+%Scrivere un programma che acquisita una sequenza di 15 caratteri visualizza 1 se si tratta di un vocabolo palindrome\index{Programmi!Palindrome}, 0 altrimenti.
+%
+%\begin{tags}
+%algoritmo. variabile di controllo che rappresenta il risultato.
+%\end{tags}
+%
+%
+%\lstinputlisting[language=c]{srccode/palindrome.c}
+
+\subsection{Matrice identit\`a}\stepcounter{numex}
+Si scriva un programma che acquisisce i dati di una matrice di dimensione \texttt{5x5} di valori interi. Il programma visualizza 1 se si tratta di una matrice identit\`a, 0 altrimenti.
+
+\begin{tags}
+array bidimensionali. algoritmo.
+\end{tags}
+
+\lstinputlisting[language=c]{srccode/matidentita.c}
+
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.6pt}}
+
+\subsection{Date: definizione di tipo}
+Definire un nuovo tipo di dato, cui dare nome \texttt{date\_t} , per rappresentare date in termini di giorno, mese ed anno.
+\begin{tags}
+\texttt{typedef}\index{typedef@\texttt{typedef}}.
+\end{tags}
+
+\begin{lstlisting}[language=c]
+typedef struct date_s {
+   int g, m, a;
+} date_t;
+\end{lstlisting}
+
+\subsection{Studente: definizione di tipo}
+Definire un nuovo tipo di dato, cui dare nome \texttt{student\_t} per rappresentare le informazioni seguenti relative ad uno studente:
+\begin{itemize}
+\item cognome e nome: due array di caratteri di 41 caratteri ciascuno
+\item data di nascita e data di immatricolazione: due data
+\item voti esami: un array di NESAMI interi (dovete saperlo voi)
+\item media: voto medio (relativo agli esami superati)
+\item livello: 'T' o 'M' per distinguere se si \`e immatricolati alla triennale o alla magistrale. 
+\end{itemize}
+
+\begin{tags}
+\texttt{typedef}\index{typedef@\texttt{typedef}}.
+\end{tags}
+
+\begin{lstlisting}[language=c]
+#define NL 41
+#define NESAMI 18
+typedef struct student_s {
+   char last[NL+1], first[NL]+1;
+   date_t dnascita, dlaurea;
+   int grades[NEX];
+   float avg;
+   char level;
+} student_t;
+\end{lstlisting}
+
+

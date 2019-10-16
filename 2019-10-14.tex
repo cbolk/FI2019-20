@@ -1,0 +1,42 @@
+\begin{itemize}
+\item sequenza di caratteri delimitata dal terminatore '\texttt{\textbackslash 0}'
+\item allocazione dell'array con \texttt{N+1} elementi
+\item acquisizione    \begin{itemize}
+	\item \texttt{scanf}: segnaposto \texttt{\%s} e niente \texttt{\&} davanti al nome dell'array
+	\item \texttt{gets}: serve poi solo il nome dell'array, trattandosi \textit{sempre} di caratteri
+    \end{itemize}
+\item scansione con condizione \texttt{s[i] != '\textbackslash 0'}
+\end{itemize}
+\mysep{}
+
+\subsection{Stringa allo specchio}\stepcounter{numex}
+Scrivere un programma che acquisisce una stringa di al pi\`u 25 caratteri, inverte l'ordine di tutti i caratteri in essa contenuta e la visualizza.
+
+\begin{tags}
+stringa. algoritmo.
+\end{tags}
+
+\lstinputlisting[language=c]{srccode/stringaallospecchio.c}
+
+\subsection{Stringa allo specchio senza vocali}\stepcounter{numex}
+Scrivere un programma che acquisisce una stringa di al pi\`u 25 caratteri, inverte l'ordine di tutti i caratteri ed elimina tutte le vocali in essa contenute. Ci sono solo caratteri minuscoli.
+
+\begin{tags}
+stringa. algoritmo.
+\end{tags}
+
+\lstinputlisting[language=c]{srccode/mirrornovoc.c}
+
+versione alternativa
+
+\lstinputlisting[language=c]{srccode/mirrornovoc2.c}
+
+\prosep{}
+
+\subsection{Anagrammi -- Proposto e risolto}\stepcounter{numex}
+Scrivere un programma che acquisisce due stringhe di al pi\`u 20 caratteri e determina se una sia l'anagramma\index{Programmi!Anagramma} dell'altra, visualizzando 1 in caso affermativo, 0 altrimenti.
+\begin{tags}
+algoritmo. stringhe. dimensione dell'array.
+\end{tags}
+
+\lstinputlisting[language=c]{srccode/anagramma.c}

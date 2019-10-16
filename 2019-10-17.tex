@@ -1,0 +1,74 @@
+\subsection{Determinante di una matrice dimensione 3}\stepcounter{numex}
+
+Scrivere un programma che acquisisce i dati di una matrice di dimensione \texttt{3x3} di numeri interi, quindi calcola e visualizzare il determinante.
+\[
+A = 
+\begin{bmatrix}
+a_{11} & a_{12} & a_{13} \\
+a_{21} & a_{22} & a_{23} \\
+a_{31} & a_{32} & a_{33} \\
+\end{bmatrix}
+\]
+
+{\small
+$$ det(A) = a_{11}\times a_{22}  \times a_{33}  + a_{12} \times a_{23}\times a_{31}  + a_{13} \times a_{21} \times a_{32} - a_{13} \times a_{22} \times a_{31} - a_{12} \times a_{21} \times a_{33} - a_{11} \times a_{23} \times a_{32} $$}
+
+\begin{tags}
+array bidimensionale.
+\end{tags}
+
+%\lstinputlisting[language=c]{srccode/determinante3.c}
+
+\subsection{Nome di file da percorso, nome ed estensione}\stepcounter{numex}
+Scrivere un programma che acquisisce una stringa di al pi\`u 50 caratteri che contenga il nome di un file completo di percorso e visualizza il solo nome. 
+
+\begin{tags}
+stringa. algoritmo.
+\end{tags}
+
+\begin{esame}
+\end{esame}
+
+\lstinputlisting[language=c]{srccode/nomefile.c}
+
+oppure:
+
+\lstinputlisting[language=c]{srccode/nomefile2.c}
+
+
+\subsection{Da intero a stringa}\stepcounter{numex}
+Scrivere un programma che acquisito un intero crea una stringa che contiene le cifre dell'intero. L'intero ha al pi\`u 6 cifre. 
+
+\begin{tags}
+stringa. algoritmo. carattere numerico.
+\end{tags}
+
+\lstinputlisting[language=c]{srccode/itos.c}
+
+Versione alternativa.
+
+\lstinputlisting[language=c]{srccode/itos2.c}
+
+\subsection{Area di un poligono}\stepcounter{numex}
+Scrivere un programma che calcola e visualizza l'area di un poligono, a partire dalle coordinate dei suoi vertici e usando la formula di Gauss.
+Il poligono ha al pi\`u 10 vertici, ciascuno rappresentato dalle coordinata \texttt{x} e \texttt{y} (valori interi).
+Il programma acquisisce prima il numero \texttt{num} di vertici del poligono, verificando che sia non superiore a 10, quindi acquisisce le coordinate dei \texttt{num} vertici, quindi procede al calcolo dell'area e la visualizza.
+Si dichiari un opportuno tipo di dato (\texttt{vertex\_t}) per rappresentare i vertici del poligono.
+
+\lstinputlisting[language=c]{srccode/areapoligonogauss.c}
+
+
+\subsection{Quadrato magico}\stepcounter{numex}
+Si scriva un programma che acquisisce i dati di una matrice di dimensione \texttt{3x3} di valori interi. Il programma visualizza 1 se si tratta di un quadrato magico seguito dal valore della somma, 0 altrimenti.
+Un quadrato magico \`e un insieme di numeri interi distinti in una tabella quadrata tale che la somma dei numeri presenti in ogni riga, in ogni colonna e in entrambe le diagonali dia sempre lo stesso valore.
+
+\begin{tags}
+array bidimensionali. algoritmo.
+\end{tags}
+
+\lstinputlisting[language=c]{srccode/magicq1.c}
+
+Versione alternativa.
+
+\lstinputlisting[language=c]{srccode/magicq2.c}
+
