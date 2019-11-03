@@ -10,7 +10,7 @@ Quest'altra soluzione non funziona: si finisce in un ciclo infinito. Per quanto 
 \getsol{srccode/contavocabolifile_no.c}
 
 
-\subsection{Quale lettera usare per un lipogramma}
+\subsection{Classifica iniziali di parole}
 Scrivere un programma che chiede all'utente il nome di un file (al pi\`u 40 caratteri) di testo e conta e visualizza il numero di parole che iniziano con ciascuna lettera dell'alfabeto. I caratteri contenuti nel file sono solo minuscoli. Le parole sono separate esclusivamente da spazi e sono al pi\`u di 32 caratteri. 
 Visualizzare il messaggio: 
 \begin{verbatim}
@@ -21,6 +21,17 @@ parole che iniziano con e: 14
 Non visualizzare alcun messaggio per le lettere che non hanno parole nel testo.
 
 \begin{tags}
-file ASCII. Accesso a file con contenuto di lunghezza non nota a priori. Contatori
+file ASCII. Accesso a file con contenuto di lunghezza non nota a priori. Contatori.
 \end{tags}
 \getsol{srccode/containizialivocabolifile.c}
+
+\subsection{Date di Nascita}
+
+Scrivere un programma che legge dal file binario \texttt{date.bin} le date di nascita di 100 persone, memorizzate come tre interi che rappresentano il giorno, il mese e l'anno di nascita. Il programma chiede all'utente una data e conta e visualizza i) il numero di persone nate in quel giorno, e ii) il numero di persone che festeggiano insieme il compleanno in tale data, in base ai dati contenuti nel file \texttt{date.bin}. Il programma visualizza i due valori interi, separati da uno spazio e seguiti da un carattere a-capo '\textbackslash n'. Definire un tipo opportuno per rappresentare le date.
+
+\begin{tags}
+file binario. \texttt{typedef}. \texttt{sizeof}.
+\end{tags}
+
+\getsol{srccode/datenascita.c}
+

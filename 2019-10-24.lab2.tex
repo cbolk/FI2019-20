@@ -1,0 +1,143 @@
+\begin{labex}{Somma a k}
+Scrivere un programma che acquisisce una sequenza di al pi\`u 100 valori interi e un intero strettamente positivo \texttt{k}. L'acquisizione della sequenza termina quando l'utente inserisce un numero negativo o nullo, oppure quando vengono acquisiti 100 valori. Il programma visualizza 1 se la sequenza contiene due valori tali che la loro somma sia \texttt{k}, 0 altrimenti. Dopo il valore visualizzato, mettere un \texttt{'a-capo'}.
+Per realizzare la soluzione si sviluppi un sottoprogramma \texttt{cercasomma} che ricevuto in ingresso \texttt{k}, l'array contenente i dati e qualsiasi altro parametro ritenuto strettamente necessario, restituisce 1 o 0 nel caso trovi i due valori la cui somma \`e \texttt{k}.
+
+\begin{labexinout}
+\labexin{una sequenza di al pi\`u 101 valori interi}
+\labexout{un intero (seguito da un carattere \texttt{'a-capo'})}
+\end{labexinout}
+
+\begin{labexcases}
+\labexcin{10 15 3 7 -4 17}
+\labexcout{1}
+
+\labexcin{2 5 6 55 10 -11 100}
+\labexcout{0}
+
+\labexcin{2 2 3 -8 7}
+\labexcout{0}
+\end{labexcases}
+
+\getsol{srccode/somma_a_k.c}
+
+\end{labex}
+
+\begin{labex}{Solo in ordine}
+Scrivere un programma che acquisisce una sequenza di al pi\`u 20 valori interi, chiedendo all'utente inizialmente quanti valori vorr\`a fornire, \texttt{num}. 
+Il programma acquisisce \texttt{num} valori e memorizza in una opportuna struttura dati la sequenza di valori i cui elementi sono strettamente crescenti, trascurando i valori che risultano non essere ordinati. Al termine dell'acquisizione il programma visualizza la lunghezza della sequenza, seguita, su una nuova riga, dalla sequenza stessa.
+L'utente inserir\`a sempre un numero di valori coerente con la richiesta.
+Avvalersi di due sottoprogrammi: \texttt{fillarrord} e \texttt{viewarr}: il primo memorizza i dati ritenuti validi, il secondo visualizza il contenuto di un array.
+
+\begin{labexinout}
+\labexin{sequenza di interi}
+\labexout{sequenza di interi}
+\end{labexinout}
+
+\begin{labexcases}
+\labexcin{10}
+\labexcinextra{3 1 4 5 -1 3 1 4 5 -1}
+\labexcout{3}
+\labexcinextra{3 4 5}
+
+\labexcin{6}
+\labexcinextra{-1 3 -1 3 -1 3}
+\labexcout{2}
+\labexcinextra{-1 3}
+
+\labexcin{8}
+\labexcinextra{9 8 7 6 5 4 3 2}
+\labexcout{1}
+\labexcinextra{9}
+
+\end{labexcases}
+
+\getsol{srccode/filterup.c}
+
+\end{labex}
+
+
+\begin{labex}{Quadro di parole}
+Scrivere un programma che acquisisce un valore intero strettamente positivo \texttt{num}, che rappresenta il numero di parole (ciascuna di al pi\`u 25 caratteri) che verranno poi fornite, e che comunque non saranno mai pi\`u di 20.
+Il programma acquisisce le \texttt{num} parole e le visualizza, una per riga, all'interno di un rettangolo creato dal carattere \texttt{*}.
+
+Per esempio, se l'utente fornisce:
+\begin{verbatim}
+5
+Hello
+world
+in
+un
+rettangolo
+\end{verbatim}
+
+il programma visualizza:
+
+\begin{verbatim}
+************
+*Hello     *
+*world     *
+*in        *
+*un        *
+*rettangolo*
+************
+\end{verbatim}
+
+\begin{labexinout}
+\labexin{un intero e una sequenza di stringhe}
+\labexout{una sequenza di caratteri}
+\end{labexinout}
+
+
+\getsol{srccode/quadro.c}
+
+\end{labex}
+
+
+\begin{labex}{Mix di due array ordinati}
+Scrivere un sottoprogramma che acquisisce due sequenze di valori interi, ciascuna di 20 elementi.
+Il programma ordina le due sequenze in senso crescente, quindi visualizza la sequenza dei valori acquisiti, in senso crescente e senza ripetizioni. Al termine dell'esecuzione, le due sequenze sono ordinate.
+Nel realizzare la soluzione, scrivere un sottoprogramma \texttt{sortarr} che ricevuto in ingresso un array, un intero \texttt{updown} e qualsiasi altro parametro ritenuto strettamente necessario, ordina il contenuto dell'array in senso crescente se \texttt{updown} vale 1, in senso decrescente se vale -1
+
+\begin{labexinout}
+\labexin{quaranta sequenze di numeri positivi}
+\labexout{una sequenza di numeri positivi}
+\end{labexinout}
+
+\begin{labexcases}
+\labexcin{-1 2 4 2 5 6 8 1 0 7 3 4 9 -9 9 9 9 9 9 9}
+\labexcinextra{7 3 4 5 6 7 8 9 2 1 0 5 6 8 1 0 1 2 4 2}
+\labexcout{-9 -1 0 1 2 3 4 5 6 7 8 9}
+
+\labexcin{9 8 7 6 5 4 3 2 1 0 0 0 0 0 0 0 0 0 0 0}
+\labexcin{1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 }
+\labexcout{0 1 2 3 4 5 6 7 8 9 }
+\end{labexcases}
+
+\getsol{srccode/sort2.c}
+
+\end{labex}
+
+
+\begin{labex}{Sottostringa pi\'u lunga senza ripetizioni}
+Scrivere un programma che acquisita una stringa di al pi\'u 30 caratteri, individui la sottostringa pi\`u lunga in essa contenuta, senza caratteri ripetuti. Il programma visualizza la lunghezza di tale sottostringa, seguita da un carattere \texttt{'a-capo'}.
+
+\begin{labexinout}
+\labexin{una stringa}
+\labexout{un intero}
+\end{labexinout}
+
+\begin{labexcases}
+\labexcin{abcabcbb}
+\labexcout{3}
+
+\labexcin{alfabeto}
+\labexcout{7}
+
+\labexcin{bbbbb}
+\labexcout{1}
+\end{labexcases}
+
+\getsol{srccode/sottostringa.c}
+
+\end{labex}
+

@@ -1,0 +1,69 @@
+\begin{itemize}
+\item passaggio di array bidimensionali
+\item passaggio di \texttt{struct}
+\end{itemize}
+
+
+\subsection{Lunghezza di una stringa}\stepcounter{numex}
+Scrivere il sottoprogramma che ricevuta in ingresso una stringa, calcola e
+restituisce la sua lunghezza.
+
+\getsol{srccode/mystrlen.sub.c}
+
+\subsection{Matrice identit\`a}\stepcounter{numex}
+Scrivere un sottoprogramma che ricevuto in ingresso un array bidimensionale e qualsiasi altro parametro ritenuto strettamente necessario restituisce 1 se si tratta di una matrice identit\`a, 0 altrimenti. La dimensione dell'array dichiarata \`e \texttt{N}.
+
+\getsol{srccode/identita.sub.c}
+
+\subsection{Vertici di un poligono}\stepcounter{numex}
+Si consideri il seguente tipo di dato per rappresentare punti nello spazio piano.
+\begin{lstlisting}[language=c]
+typedef struct p {
+    int x, y;
+} punto_t;
+\end{lstlisting}
+
+Si scriva un sottoprogramma che ricevuto in ingresso un array di tipo \texttt{punto\_t} e qualsiasi altro parametro ritenuto strettamente necessario acquisisca i dati relativi ai vertici di un poligono.
+
+\getsol{srccode/getpoints.c}
+
+\subsection{Vertice?}\stepcounter{numex}
+Con riferimento al tipo prima definito, scrivere un sottoprogramma che ricevuto in ingresso un array di tipo \texttt{punto\_t} e qualsiasi altro parametro ritenuto strettamente necessario, ed un punto, determini se il punto \`e un vertice del poligono o meno, restituendo rispettivamente 1 o 0.
+
+\getsol{srccode/isvertex.c}
+
+Versione con il passaggio per indirizzo
+
+\getsol{srccode/isvertexaddr.c}
+
+
+\prosep{}
+
+\subsection{Combinazione stringhe -- Proposto}\stepcounter{numexp}
+Programma che acquisisce due stringhe di al pi\`u 20 caratteri ciascuna e consente all'utente di selezionare una tra le seguenti operazioni:\begin{itemize}
+\item 1. verificare se la prima stringa \`e contenuta nella seconda (in caso positivo visualizza 1, 0 altrimenti)
+\item 2. verificare se la seconda stringa \`e contenuta nella prima (in caso positivo visualizza 1, 0 altrimenti)
+\item 3. concatena la seconda stringa alla prima e visualizza il risultato
+\item 4. concatena la prima stringa alla seconda e visualizza il risultato
+\item 5. concatena le stringhe in ordine alfabetico crescente e visualizza il risultato
+\item 6. termine programma
+\end{itemize}
+Il programma chiede ripetutamente all'utente quale operazione svolgere, acquisisce le stringhe, svolge l'operazione richiesta e ripresenta il men\`u, fino a quando l'utente decide di terminare il programma, selezionando l'opportuna voce del men\`u.
+
+\lstinputlisting[language=c]{srccode/towardssubprograms.c}
+
+Versione con sottoprogrammi
+
+\lstinputlisting[language=c]{srccode/towardssubprograms.sub.c}
+
+\subsection{Cifra del numero -- Proposto}\stepcounter{numexp}
+Scrivere un sottoprogramma cifra che riceve come parametri due interi \texttt{num} e \texttt{k}. Se \texttt{k} \`e strettamente positivo, il sottoprogramma calcola e restituisce la \texttt{k}-esima cifra del numero \texttt{num} a partire da destra. Nel caso in cui \texttt{k} non sia strettamente positivo o \texttt{k} sia maggiore del numero effettivo di cifre di \texttt{num}, il sottoprogramma restituisce \texttt{-1}.
+
+Scrivere un programma che chiede all'utente i due valori \texttt{num} e \texttt{k} ed invoca il sottoprogramma cifra visualizzando poi il risultato, seguito da un carattere a-capo \texttt{'\textbackslash n'}.
+
+\begin{tags}
+sottoprogrammi. algoritmo.
+\end{tags}
+
+\getsol{srccode/cifra.sub.c}
+
