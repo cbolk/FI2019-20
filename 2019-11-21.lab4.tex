@@ -1,0 +1,259 @@
+\begin{labex}{Campi e alberi}\end{labex}
+\definecolor{shadecolor}{RGB}{242, 242, 243}
+\begin{snugshade}
+\textbf{Alberi}
+\end{snugshade}
+
+Si consideri il gioco ``Alberi'', costituito da una griglia quadrata, in cui in ogni elemento pu\`o esserci un albero o meno. Le dimensioni della griglia variano da gioco a gioco, ma sono di al pi\`u 12 elementi per lato. La griglia \`e occupata da aree di colore diverso, cui appartengono uno o pi\`u elementi, e le regole per la corretta presenza degli alberi sono le seguenti:
+\begin{inparaenum}[i)]
+\item ci devono essere 2 alberi per riga, 
+\item ci devono essere 2 alberi per colonna,
+\item ci devono essere 2 alberi per colore,
+\item negli elementi adiacenti ad un albero non ci devono essere alberi.
+\end{inparaenum}
+  Gli schemi pi\`u piccoli (con dimensione minore o uguale a 6) contengono 1 solo albero per riga, colonna e colore.\\
+
+
+Si realizzi un programma che acquisisce in ingresso la specifica della disposizione delle aree e dei colori (nel formato indicato di seguito) e visualizza 1 se se lo schema ricevuto in ingresso \`e corretto, 0 altrimenti, seguito dal carattere 'a capo'.
+Si organizzi il codice in sottoprogrammi. 
+
+Si suggerisce di sviluppare, tra gli altri, i seguenti sottoprogrammi:
+
+   \begin{tabular}{l}
+  	\texttt{checkGriglia} \\ 
+	 \phantom{00}restitusce 1 se il numero di alberi e la loro disposizione \`e corretta\\
+  	\texttt{checkRiga} \\ 
+	 \phantom{00}restitusce 1 se il numero di alberi nella riga della griglia \`e quello richiesto\\
+  	\texttt{checkColonna} \\ 
+	 \phantom{00}restitusce 1 se il numero di alberi nella colonna della griglia \`e quello richiesto\\
+  	\texttt{checkColore} \\ 
+	 \phantom{00}restitusce 1 se il numero di alberi in un'area di colore della griglia \`e quello richiesto\\
+  	\texttt{checkDistanza} \\ 
+	 \phantom{00}restitusce 1 se quando si incontra un albero nella griglia esso non ha alberi negli elementi adiacenti.\\
+  \end{tabular}
+
+\vspace{1em}
+%
+
+%{\small
+%\lstset{label=lst:proc1,basicstyle=\ttfamily}
+%\lstinputlisting{alberi.c}
+%}
+
+\textbf{Ingresso/Uscita:} 
+
+\textbf{input:}~\texttt{un insieme di numeri interi e caratteri}
+
+\textbf{output:}~\texttt{un intero}
+
+\begin{tabular}{lr}
+\textbf{Alcuni casi di test per il collaudo:}
+&
+\multirow{12}{*}{
+\begin{tikzpicture}
+%\begin{scope}
+%\draw (0, 0) grid (5, 5);
+\begin{scope}[every node/.append]
+\node (rect) at (0.5,0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+\node (rect) at (1.5,0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+\node (rect) at (2.5,0.5) [draw,thick,minimum width=1cm,minimum height=1cm,pattern=north east lines, pattern color=black] {};
+\node (rect) at (3.5,0.5) [draw,thick,minimum width=1cm,minimum height=1cm,pattern=north east lines, pattern color=black] {};
+\node (rect) at (4.5,0.5) [draw,thick,minimum width=1cm,minimum height=1cm,pattern=north east lines, pattern color=black] {};
+\node (rect) at (0.5,-0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+\node (rect) at (1.5,-0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+\node (rect) at (2.5,-0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+\node (rect) at (3.5,-0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+\node (rect) at (4.5,-0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+\node (rect) at (0.5,-1.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+\node (rect) at (1.5,-1.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+\node (rect) at (2.5,-1.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+\node (rect) at (3.5,-1.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+\node (rect) at (4.5,-1.5) [pattern=north west lines,pattern color=black,draw,thick,minimum width=1cm,minimum height=1cm] {};
+\node (rect) at (0.5,-2.5) [draw,thick,minimum width=1cm,minimum height=1cm, pattern color=red,pattern=dots] {};
+\node (rect) at (1.5,-2.5) [draw,thick,minimum width=1cm,minimum height=1cm, pattern color=red,pattern=dots] {};
+\node (rect) at (2.5,-2.5) [draw,thick,minimum width=1cm,minimum height=1cm, pattern color=red,pattern=dots] {};
+\node (rect) at (3.5,-2.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+\node (rect) at (4.5,-2.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+\node (rect) at (0.5,-3.5) [draw,thick,minimum width=1cm,minimum height=1cm, pattern color=red,pattern=dots] {};
+\node (rect) at (1.5,-3.5) [draw,thick,minimum width=1cm,minimum height=1cm, pattern color=red,pattern=dots] {};
+\node (rect) at (2.5,-3.5) [draw,thick,minimum width=1cm,minimum height=1cm, pattern color=red,pattern=dots] {};
+\node (rect) at (3.5,-3.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+\node (rect) at (4.5,-3.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+%\node (circle) at (2.5,0.5) [draw,thick,minimum width=0.6cm,minimum height=0.6cm, fill=black] {}; 
+\node[circle, blue, fill=black] (b) at (2.5,0.5) {};
+\node[circle, blue, fill=black] (b) at (1.5,-0.5) {};
+\node[circle, blue, fill=black] (b) at (4.5,-1.5) {};
+\node[circle, blue, fill=black] (b) at (0.5,-2.5) {};
+\node[circle, blue, fill=black] (b) at (3.5,-3.5) {};
+\end{scope}
+\end{tikzpicture}
+} \\
+
+\texttt{5  \% dimensione del campo di gioco}\\
+\texttt{AABBB \% un carattere per ogni colore}\\
+\texttt{AAAAA}\\
+\texttt{AAAAC}\\
+\texttt{DDDEE}\\
+\texttt{DDDEE}\\
+\texttt{0 2 \ \ \% coordinate degli alberi}\\
+\texttt{1 1}\\
+\texttt{2 4}\\
+\texttt{3 0}\\
+\texttt{4 3}\\
+
+\texttt{0}\\
+\end{tabular}
+
+\vspace{10em}
+
+\begin{tabular}{lr}
+&
+\multirow{13}{*}{
+\begin{tikzpicture}
+%\begin{scope}
+%\draw (0, 0) grid (5, 5);
+\begin{scope}[every node/.append]
+\node (rect) at (0.5,0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+\node (rect) at (1.5,0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+\node (rect) at (2.5,0.5) [draw,thick,minimum width=1cm,minimum height=1cm,pattern=north east lines, pattern color=black] {};
+\node (rect) at (3.5,0.5) [draw,thick,minimum width=1cm,minimum height=1cm,pattern=north east lines, pattern color=black] {};
+\node (rect) at (4.5,0.5) [draw,thick,minimum width=1cm,minimum height=1cm,pattern=north east lines, pattern color=black] {};
+\node (rect) at (0.5,-0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+\node (rect) at (1.5,-0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+\node (rect) at (2.5,-0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+\node (rect) at (3.5,-0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+\node (rect) at (4.5,-0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+\node (rect) at (0.5,-1.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+\node (rect) at (1.5,-1.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+\node (rect) at (2.5,-1.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+\node (rect) at (3.5,-1.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+\node (rect) at (4.5,-1.5) [pattern=north west lines,pattern color=black,draw,thick,minimum width=1cm,minimum height=1cm] {};
+\node (rect) at (0.5,-2.5) [draw,thick,minimum width=1cm,minimum height=1cm, pattern color=red,pattern=dots] {};
+\node (rect) at (1.5,-2.5) [draw,thick,minimum width=1cm,minimum height=1cm, pattern color=red,pattern=dots] {};
+\node (rect) at (2.5,-2.5) [draw,thick,minimum width=1cm,minimum height=1cm, pattern color=red,pattern=dots] {};
+\node (rect) at (3.5,-2.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+\node (rect) at (4.5,-2.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+\node (rect) at (0.5,-3.5) [draw,thick,minimum width=1cm,minimum height=1cm, pattern color=red,pattern=dots] {};
+\node (rect) at (1.5,-3.5) [draw,thick,minimum width=1cm,minimum height=1cm, pattern color=red,pattern=dots] {};
+\node (rect) at (2.5,-3.5) [draw,thick,minimum width=1cm,minimum height=1cm, pattern color=red,pattern=dots] {};
+\node (rect) at (3.5,-3.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+\node (rect) at (4.5,-3.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+%\node (circle) at (2.5,0.5) [draw,thick,minimum width=0.6cm,minimum height=0.6cm, fill=black] {}; 
+\node[circle, blue, fill=black] (b) at (2.5,0.5) {};
+\node[circle, blue, fill=black] (b) at (0.5,-0.5) {};
+\node[circle, blue, fill=black] (b) at (4.5,-1.5) {};
+\node[circle, blue, fill=black] (b) at (1.5,-2.5) {};
+\node[circle, blue, fill=black] (b) at (3.5,-3.5) {};
+\end{scope}
+\end{tikzpicture}
+} \\
+
+\texttt{5  \% dimensione del campo di gioco}\\
+\texttt{AABBB \% un carattere per ogni colore}\\
+\texttt{AAAAA}\\
+\texttt{AAAAC}\\
+\texttt{DDDEE}\\
+\texttt{DDDEE}\\
+\texttt{0 2 \ \ \% coordinate degli alberi}\\
+\texttt{1 0}\\
+\texttt{2 4}\\
+\texttt{3 1}\\
+\texttt{4 3}\\
+
+\texttt{1}\\
+
+\end{tabular}
+
+%\vspace{2em}
+%
+%\begin{tabular}{lr}
+%%%%
+%&
+%\multirow{13}{*}{
+%\begin{tikzpicture}
+%%\begin{scope}
+%%\draw (0, 0) grid (5, 5);
+%\begin{scope}[every node/.append]
+%\node (rect) at (0.5,0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=green!20] {};
+%\node (rect) at (1.5,0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=green!20] {};
+%\node (rect) at (2.5,0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=green!20] {};
+%\node (rect) at (3.5,0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=green!20] {};
+%\node (rect) at (4.5,0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=green!20] {};
+%\node (rect) at (5.5,0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=green!20] {};
+%\node (rect) at (6.5,0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=green!20] {};
+%\node (rect) at (0.5,-0.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+%\node (rect) at (1.5,-0.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+%\node (rect) at (2.5,-0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=green!20] {};
+%\node (rect) at (3.5,-0.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+%\node (rect) at (4.5,-0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=green!20] {};
+%\node (rect) at (5.5,-0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=green!20] {};
+%\node (rect) at (6.5,-0.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=green!20] {};
+%\node (rect) at (0.5,-1.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+%\node (rect) at (1.5,-1.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+%\node (rect) at (2.5,-1.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+%\node (rect) at (3.5,-1.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+%\node (rect) at (4.5,-1.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+%\node (rect) at (5.5,-1.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+%\node (rect) at (6.5,-1.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!20] {};
+%\node (rect) at (0.5,-2.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+%\node (rect) at (1.5,-2.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+%\node (rect) at (2.5,-2.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+%\node (rect) at (3.5,-2.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+%\node (rect) at (4.5,-2.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+%\node (rect) at (5.5,-2.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=red!50] {};
+%\node (rect) at (6.5,-2.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=pink] {};
+%\node (rect) at (0.5,-3.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+%\node (rect) at (1.5,-3.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+%\node (rect) at (2.5,-3.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+%\node (rect) at (3.5,-3.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=red!50] {};
+%\node (rect) at (4.5,-3.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=red!50] {};
+%\node (rect) at (5.5,-3.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=red!50] {};
+%\node (rect) at (6.5,-3.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=pink] {};
+%\node (rect) at (0.5,-4.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+%\node (rect) at (1.5,-4.5) [draw,thick,minimum width=1cm,minimum height=1cm] {};
+%\node (rect) at (2.5,-4.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=yellow!60] {};
+%\node (rect) at (3.5,-4.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=yellow!60] {};
+%\node (rect) at (4.5,-4.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!60] {};
+%\node (rect) at (5.5,-4.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!60] {};
+%\node (rect) at (6.5,-4.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=pink] {};
+%\node (rect) at (0.5,-5.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=yellow!60] {};
+%\node (rect) at (1.5,-5.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=yellow!60] {};
+%\node (rect) at (2.5,-5.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=yellow!60] {};
+%\node (rect) at (3.5,-5.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!60] {};
+%\node (rect) at (4.5,-5.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!60] {};
+%\node (rect) at (5.5,-5.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!60] {};
+%\node (rect) at (6.5,-5.5) [draw,thick,minimum width=1cm,minimum height=1cm, fill=blue!60] {};
+%%\node (circle) at (2.5,0.5) [draw,thick,minimum width=0.6cm,minimum height=0.6cm, fill=black] {}; 
+%\node[circle, blue, fill=black] (b) at (2.5,0.5) {};
+%\node[circle, blue, fill=black] (b) at (0.5,-0.5) {};
+%\node[circle, blue, fill=black] (b) at (4.5,-1.5) {};
+%\node[circle, blue, fill=black] (b) at (1.5,-2.5) {};
+%\node[circle, blue, fill=black] (b) at (3.5,-3.5) {};
+%\end{scope}
+%\end{tikzpicture}
+%} \\
+%
+%\texttt{7  \% dimensione del campo di gioco}\\
+%\texttt{AAAAAAA \% 1 carattere per ogni colore}\\
+%\texttt{BBABAAA}\\
+%\texttt{BBBBCCC}\\
+%\texttt{BBBBBDE}\\
+%\texttt{BBBDDDE}\\
+%\texttt{BBFFGGE}\\
+%\texttt{FFFGGGG}\\
+%\texttt{0 2 \ \ \% alberi}\\
+%\texttt{1 0}\\
+%\texttt{2 4}\\
+%\texttt{3 1}\\
+%\texttt{4 3}\\
+%
+%\texttt{1}\\
+%
+%
+%
+%\end{tabular}
+
+\getsol{srccode/alberinoliste.c}
+
+
+

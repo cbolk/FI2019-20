@@ -64,7 +64,7 @@ sizeof(int)
 \end{tabular}
 
 \subsection{Insieme unione}\stepcounter{numex}
-Scrivere un sottoprogramma, che ricevute in ingresso due liste che rappresentano insiemi di valori interi, restituisce una nuova lista rappresentante l'unione dei due insiemi.
+Scrivere un sottoprogramma che ricevute in ingresso due liste che rappresentano insiemi di valori interi, restituisce una nuova lista rappresentante l'unione dei due insiemi.
 
 \begin{tags}
 \texttt{Unione di insiemi}\index{Programmi lista concatenata semplice!Unione di insiemi}. 
@@ -73,6 +73,51 @@ Scrivere un sottoprogramma, che ricevute in ingresso due liste che rappresentano
 
 \getsol{srccode/list.setunion.sub.c}
 
+\subsection{Elimina doppioni adiacenti}\stepcounter{numex}
+Scrivere un sottoprogramma che ricevuta in ingresso una lista elimina dalla lista le ripetizioni di elementi \textit{adiacenti}. 
+
+\begin{tags}
+lista concatenata semplice\index{lista concatenata semplice}. 
+\texttt{deleteptr}\index{Lista concatenata semplice!\texttt{deleteptr}}.
+\end{tags}
+
+
+Per esempio, se la lista in ingresso \`e quella di seguito riportata e \texttt{start} \`e 1:
+$$
+3 \rightarrow 5 \rightarrow 1 \rightarrow 2  \rightarrow 2 \rightarrow 1 \rightarrow|
+$$ 
+
+il sottoprogramma restituisce la lista seguente
+
+$$
+3 \rightarrow 5 \rightarrow 1 \rightarrow 2 \rightarrow 1 \rightarrow|
+$$ 
+
+
+\getsol{srccode/list.removedup.sub.c}
+
+\subsection{Da lista a insieme}\stepcounter{numex}
+Scrivere un sottoprogramma che ricevuta in ingresso una lista la manipola facendola diventare un insieme (elimina gli elementi ripetuti). 
+
+\begin{tags}
+lista concatenata semplice\index{lista concatenata semplice}. 
+\end{tags}
+
+
+Per esempio, se la lista in ingresso \`e quella di seguito riportata e \texttt{start} \`e 1:
+$$
+3 \rightarrow 5 \rightarrow 1 \rightarrow 2  \rightarrow 2 \rightarrow 1 \rightarrow|
+$$ 
+
+il sottoprogramma restituisce la lista seguente
+
+$$
+3 \rightarrow 5 \rightarrow 1 \rightarrow 2 \rightarrow|
+$$ 
+
+
+\getsol{srccode/list.removedup.sub.c}
+
 
 \subsection{Scompatta lista}\stepcounter{numex}
 Scrivere un sottoprogramma \texttt{extract} che riceve in ingresso una lista per la gestione dei numeri interi, e un intero \texttt{start} che vale senz'altro o 0 o 1 (non \`e necessario gestire il caso in cui non sia cos\`i). La lista \textit{codifica} un'informazione binaria: il valore del primo elemento indica quante volte consecutive compare il bit \texttt{start}, il secondo elemento indica quante volte compare il complemento di \texttt{start}, il terzo elemento quante volte compare il bit  \texttt{start} e cos\`i fino alla fine.
@@ -80,7 +125,7 @@ Il sottoprogramma scompatta tale informazione e restituisce \textbf{una nuova li
 
 Non \`e necessario definire due tipi diversi di dato, poich\`e il contenuto dell'elemento della lista \`e comunque sempre un intero. 
 
- Per esempio, se la lista in ingresso \`e quella di seguito riportata e \texttt{start} \`e 1:
+Per esempio, se la lista in ingresso \`e quella di seguito riportata e \texttt{start} \`e 1:
 $$
 3 \rightarrow 5 \rightarrow 1 \rightarrow 2  \rightarrow 2 \rightarrow 1 \rightarrow|
 $$ 
@@ -92,7 +137,7 @@ $$
 $$ 
 
 \begin{tags}
-\texttt{lista concatenata semplice}\index{lista concatenata semplice}. 
+lista concatenata semplice\index{lista concatenata semplice}. 
 \end{tags}
 
 \begin{esame}
