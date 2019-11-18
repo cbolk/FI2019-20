@@ -1,0 +1,55 @@
+\subsection{Confronta lunghezza delle stringhe}\stepcounter{numex}
+
+Scrivere un sottoprogramma che riceve due stringhe in ingresso e:
+\begin{itemize}
+    \item restituisce -1 se la prima stringa \`e pi\`u corta della seconda
+    \item restituisce 0 se le due stringhe hanno la stessa lunghezza
+    \item restituisce 1 se la prima stringa \`e pi\`u lunga della seconda
+\end{itemize}
+
+
+Scrivere quindi un programma che chiede all'utente due stringhe, che si assume abbiano lunghezza massima di 50 caratteri, e stampa:
+\begin{itemize}
+    \item "piu' corta" se la prima stringa \`e pi\`u corta della seconda
+    \item "uguale" se le due stringhe hanno la stessa lunghezza
+    \item "piu' lunga" se la prima stringa \`e pi\`u lunga della seconda
+\end{itemize}
+
+\begin{tags}
+Stringhe. Lunghezza stringhe. Sottoprogrammi.
+\end{tags}
+\getsol{srccode/strlencmp.c}
+
+
+\subsection{Selection sort}\stepcounter{numex}
+Il selection sort \`e un algoritmo di ordinamento che, dato un array di lunghezza $n$, ripete i seguenti passi (partendo da $i = 0$):
+\begin{itemize}
+    \item seleziona il minimo elemento nella sezione di array che va da $i$ a $n-1$ (compreso)
+    \item scambia l'elemento trovato con quello in posizione $i$
+    \item incrementa l'indice $i$
+\end{itemize}
+
+Scrivere un sottoprogramma che riceve in ingresso un array di interi e tutti i parametri aggiuntivi
+che si ritengono necessari ed esegue un selection sort su di esso.
+
+Scrivere quindi un programma che riceve in ingresso 10 numeri interi e li stampa ordinati in modo crescente.
+
+\begin{tags}
+Array monodimensionali. Algoritmi di ordinamento. Sottoprogrammi.
+\end{tags}
+\getsol{srccode/selectionsort.c}
+
+
+\subsection{Matrice trasposta}\stepcounter{numex}
+Scrivere un sottoprogramma che data in ingresso una matrice di interi e tutti i parametri strettamente necessari,
+calcola e restituisce la sua trasposta.
+
+Scrivere quindi un programma che dati in ingresso due interi, rispettivamente il numero di righe e il numero
+di colonne  (che si assumono validi e inseriti correttamente), e una matrice di interi di quelle dimensioni
+(quindi numero\_righe * numero\_colonne interi) ne calcola e stampa la trasposta.
+Si assuma che la matrice abbia al massimo 15 righe e 20 colonne.
+
+\begin{tags}
+Array bidimensionali. Sottoprogrammi.
+\end{tags}
+\getsol{srccode/matricetrasposta.c}

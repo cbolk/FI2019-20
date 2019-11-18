@@ -1,0 +1,84 @@
+\subsection{Prepara un cocktail}\stepcounter{numex}
+
+Si vuole scrivere un programma che, dati gli ingredienti di un cocktail, ne definisca la ricetta e la gradazione alcolica.
+Si assume di avere solamente ingredienti liquidi nella ricetta e che tali ingredienti non siano mai pi\`u di 10.
+Si ricorda, inoltre, che nelle ricette dei cocktail le quantit\`a degli ingredienti sono definite in parti (che non necessariamente sono intere).
+
+Definire una struttura dati che possa memorizzare le informazioni riguardanti un ingrediente di un cocktail, che sono:
+\begin{itemize}
+    \item nome dell'ingrediente (dalla lunghezza massima di 50 caratteri)
+    \item gradazione alcolica dell'ingrediente in percentuale (che si assume intera)
+    \item numero di parti nel cocktail
+\end{itemize}
+
+Scrivere un programma che:
+\begin{itemize}
+    \item prende in ingresso un intero $n$ che corrisponde al numero di ingredienti nel cocktail,
+      se il numero \`e minore di 1 o maggiore di 10, l'inserimento deve essere ripetuto;
+    \item chiede in input, per ogni ingrediente, il nome, la gradazione alcolica e il numero di parti;
+    \item richiede quanti litri $l$ di cocktail si vogliono preparare;
+    \item stampa, per ogni ingrediente, la quantit\`a necessaria per la preparazione di $l$ litri di cocktail;
+    \item stampa la gradazione alcolica del cocktail
+\end{itemize}
+
+\begin{tags}
+\texttt{struct}. \texttt{typedef}. Array monodimensionali.
+\end{tags}
+\getsol{srccode/cocktail.c}
+
+
+\subsection{Controlla Sudoku}\stepcounter{numex}
+Il Sudoku \`e un gioco di logica in cui lo scopo \`e quello di completare una matrice $9 \times 9$ inserendo numeri tra 1 e 9.
+Il gioco termina quando la matrice \`e piena e rispetta i seguenti vincoli:
+\begin{itemize}
+    \item ogni riga contiene tutti i numeri da 1 a 9
+    \item ogni colonna contiene tutti i numeri da 1 a 9
+    \item ogni matrice $3 \times 3$ ottenuta raggruppando righe e colonne contigue contiene tutti i numeri da 1 a 9.
+      In questo gruppo di matrici si includono:
+      \begin{itemize}
+          \item la matrice ottenuta prendendo le righe 0-2 delle colonne 0-2;
+          \item la matrice ottenuta prendendo le righe 0-2 delle colonne 3-5;
+          \item la matrice ottenuta prendendo le righe 0-2 delle colonne 6-8;
+          \item la matrice ottenuta prendendo le righe 3-5 delle colonne 0-2;
+          \item ...
+      \end{itemize}
+\end{itemize}
+
+Scrivere un sottoprogramma per ogni vincolo che, data una matrice di interi $9 \times 9$
+e tutti i parametri strettamente necessari, restituisce 1 se il vincolo \`e rispettato, 0 altrimenti.
+Scrivere infine un sottoprogramma che, data una matrice di interi $9 \times 9$ e tutti i parametri strettamente necessari, 
+restituisce 1 se tale matrice rappresenta una soluzione valida per il gioco del Sudoku, 0 altrimenti.
+
+\begin{tags}
+Sottoprogrammi. Array bidimensionali.
+\end{tags}
+\getsol{srccode/sudoku.c}
+
+
+\subsection{Zoo}\stepcounter{numex}
+Definire una tipo di dato che contenga informazioni sugli animali di uno zoo.
+Il nuovo tipo deve contenere:
+\begin{itemize}
+    \item nome dell'animale, es: "Leone" (lunghezza massima 50 caratteri)
+    \item specie dell'animale, es: "Panthera Leo" (lunghezza massima 50 caratteri)
+    \item numero di esemplari adulti nello zoo
+    \item numero di cuccioli nello zoo
+\end{itemize}
+
+Scrivere i seguenti sottoprogrammi:
+\begin{itemize}
+    \item dato in ingresso l'array di animali dello zoo e tutti gli altri parametri strettamente necessari, 
+      restituisce il numero totale di animali nello zoo;
+    \item dato in ingresso l'array di animali dello zoo e tutti gli altri parametri strettamente necessari, 
+      restituisce la percentuale di cuccioli rispetto al totale degli animali nello zoo;
+    \item dato in ingresso l'array di animali dello zoo, una stringa contenente il nome di una specie 
+      e tutti gli altri parametri strettamente necessari, restituisce il numero totale di animali 
+      di quella specie all'interno dello zoo. 
+      Si consiglia di definire un sottoprogramma di supporto che, date in ingresso due stringe, restituisce 1
+      se le due stringhe sono identiche, 0 altrimenti.
+\end{itemize}
+
+\begin{tags}
+\texttt{struct}. \texttt{typedef}. Array monodimensionali. Stringhe. Sottoprogrammi.
+\end{tags}
+\getsol{srccode/zoo.c}

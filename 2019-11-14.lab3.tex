@@ -1,0 +1,260 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{labex}{Operazioni da file}
+Scrivere un programma che legga dal file \texttt{operazioni.txt} un elenco a priori di lunghezza ignota di operazioni \textbf{tra valori interi} da eseguire, una per riga.
+L'operazione tra due operandi interi \`e presentata nel formato:
+\begin{verbatim}
+<operando1> <operazione> <operando2>
+\end{verbatim}
+Tra il primo operando, l'operatore e il secondo operando c'\`e esattamente uno spazio, e gli operatori utilizzati sono solamente \texttt{+}, \texttt{-}, \texttt{*} o \texttt{/} (non effettuare controlli, \`e senz'altro cos\`i).
+
+Il programma visualizza i risultati delle operazioni presenti nel file. 
+Nella soluzione avvalersi di un sottoprogramma (che dovrete sviluppare) che riceve in ingresso i due operandi e l'operatore e restituisce al chiamante il risultato dell'operazione.
+Dopo la sequenza di risultati visualizzata, mettere un \texttt{'a-capo'}.
+
+Per esempio, se il contenuto del file \texttt{operazioni.txt} \`e il seguente
+
+\begin{verbatim}
+5 + 4
+10 / 9
+4 * 7 
+1520 - 5567
+184 * 2
+\end{verbatim}
+
+il programma visualizza: \texttt{9 1 28 -4047 368}
+
+\begin{labexinout}
+\labexin{file di testo contenente stringhe}
+\labexout{una sequenza di interi}
+\end{labexinout}
+
+\getsol{srccode/operazioni.c}
+
+\end{labex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{labex}{Valore mediano di un array}
+Il file di testo \texttt{mediana.txt} contiene una sequenza di al pi\`u 100 interi, preceduta da un intero \texttt{n} che rappresenta il numero di valori successivamente presenti nel file (non ci saranno inconsistenze, se \texttt{n} vale 12, nel file ci sono poi 12 valori interi).
+
+Scrivere un programma che visualizzi il valore mediano \texttt{M} dei numeri presenti nel file. Il valore mediano cercato \texttt{M} \`e il valore che occupa la posizione centrale nella distribuzione ordinata dei valori.
+
+Per risolvere il problema, sviluppare due sottoprogrammi: \texttt{ordina} e \texttt{mediano}, il primo per ordinare un insieme di valori, il secondo per calcolare il valore mediano.
+
+Dopo il valore visualizzato, mettere un \texttt{'a-capo'}.
+
+Per esempio, se il contenuto del file \`e il seguente:
+
+\begin{verbatim}
+10
+3
+5
+97
+45
+68
+32
+15
+20
+1000
+24
+\end{verbatim}
+
+il programma visualizza 32.
+
+\begin{labexinout}
+\labexin{file di testo contenente valori interi}
+\labexout{un intero (seguito da un carattere \texttt{'a-capo'})}
+\end{labexinout}
+
+\getsol{srccode/mediano.c}
+
+\end{labex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{labex}{Prodotto tra matrici}
+Scrivere un programma che acquisisce i dati di due matrici di valori interi da un file binario \texttt{mats.bin}, e ne effettua il prodotto, visualizzando il risultato (seguito dal carattere \texttt{'a-capo'}).
+Il contenuto del file binario \`e il seguente:
+\begin{verbatim}
+numero di righe matrice 1
+numero di colonne matrice 1 
+numero di colonne matrice 2
+valori matrice 1
+valori matrice 2
+\end{verbatim}
+
+(Si noti che il numero di colonne della matrice 1 \`e pari al numero di righe della matrice 2 affinch\`e il prodotto possa essere fatto.)
+Le matrici hanno senz'altro dimensione non superiore a \texttt{50x50}.
+
+Per esempio, se il file contiene (qua visualizzato non in binario):
+\begin{verbatim}
+3
+4
+2
+12 54 99 5
+2 45 68 33
+10 22 888 4
+197 -85
+264 -8 
+487 1
+-4 -8
+\end{verbatim}
+il programma visualizza:
+\begin{verbatim}
+64813 -1393 
+45258 -726 
+440218 -170 
+\end{verbatim}
+
+\begin{labexinout}
+\labexin{un file binario}
+\labexout{una sequenza di interi organizzati su pi\`u righe}
+\end{labexinout}
+
+\getsol{srccode/prodotto-matrici.c}
+
+\end{labex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{labex}{Ruota immagine a destra}
+Un'immagine in bianco e nero \`e rappresentata in un sistema di calcolo come un array bidimensionale di valori interi tra compresi nell'intervallo [0, 255],  ciascuno rappresentante il valore di intensit\`a del pixel in quella posizione. 
+Scrivere un programma che acquisita un'immagine da un file il cui nome viene chiesto all'utente (ed \`e al pi\`u di 30 caratteri), la ruota di 90 gradi in senso orario.
+L'immagine ha una dimensione massima di \texttt{100x100} pixel.
+
+Il formato del file contenente l'immagine \`e il seguente:
+\begin{verbatim}
+<numero righe immagine> <numero colonne immagine>
+<valori dei pixel dell'immagine>
+\end{verbatim}
+
+Per esempio, se il file contiene:
+\begin{verbatim}
+4 6
+2 55 79 3 218 24
+41 5 46 233 96 9
+73 34 11 0 109 68
+35 85 17 45 20 219
+\end{verbatim}
+il programma visualizza:
+\begin{verbatim}
+35 73 41 2
+85 34 5 55
+17 11 46 79
+45 0 233 3
+20 109 96 218
+219 68 9 24
+\end{verbatim}
+
+
+\begin{labexinout}
+\labexin{un file di interi}
+\labexout{sequenze di interi organizzati per righe}
+\end{labexinout}
+
+
+\getsol{srccode/ruota.c}
+
+\end{labex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{labex}{Somma dei quadrati delle differenze tra immagini}
+Confrontare due immagini (o parti di immagini) e capire quanto sono simili \`e un problema molto comune in Computer Vision. Un modo per capire quanto due immagini sono simili consiste nel calcolare la somma dei quadrati delle differenze pixel per pixel, metodo noto con il nome di Sum of Squared Differences o SSD.
+
+Scrivere un programma che dati due file contenenti due immagini (con le stesse dimensioni di al pi\`u 50x50 pixel) calcoli l'indice SSD, ovvero:
+\begin{equation}
+ SSD = \frac{1}{n} \sum_{i=0}^{n_r} \sum_{j=0}^{n_c} (I_1(i,j)-I_2(i,j))^2
+\end{equation}
+dove $n$ \`e il numero di pixel di una immagine, $n_r$ \`e il numero di righe, $n_c$ il numero di colonne e $I_x(i,j)$ \`e il valore del pixel $(i,j)$ nell'immagine $x$.
+Si calcoli il valore di $SSD$ tramite un sottoprogramma opportuno che riceve in ingresso le due immagini e restituisce il valore calcolato.
+Il programma chiede all'utente il nome dei due file contenenti le immagini (ciascuno al pi\`u 30 caratteri).
+
+Il formato del file contenente un immagine \`e:
+\begin{verbatim}
+<numero righe immagine> <numero colonne immagine>
+<valori dei pixel dell'immagine>
+\end{verbatim}
+
+Per esempio, date le immagini:
+\begin{verbatim}
+3 4
+25 65 48 88
+100 251 64 95
+65 10 25 45
+
+3 4
+28 65 55 94
+100 254 70 95
+77 20 30 45
+\end{verbatim}
+il valore visualizzato \`e \texttt{9547.083008}
+
+\begin{labexinout}
+\labexin{due file di testo contenente interi}
+\labexout{un valore reale (seguito da un carattere \texttt{'a-capo'})}
+\end{labexinout}
+
+\getsol{srccode/ssd.c}
+\end{labex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{labex}{Archivio di persone ordinato}
+%Si vuole realizzare un archivio di dati di persone (al pi\`u 100), in cui ciascuna persona \`e individuata da nome (massimo 30 caratteri), cognome (massimo 30 caratteri) ed et\`a.
+%L'archivio viene caricato/salvato in un file binario che si chiama \texttt{dati.bin}. All'inizio il programma carica i dati dal file, e offre un menu' con tre opzioni: 1. aggiungere un nominativo, 2. eliminare un nominativo, e 3. terminare. Il programma presenta il men\`u e realizza le opzioni 1 o 2 fino a che l'utente non decide di terminare. Quando si aggiunge un nuovo nominativo, questo viene inserito in ordine, quando si elimina un nominativo, si compatta l'elenco. Si eliminano i nominativi in base alla posizione in archivio (il primo nominativo ha posizione 1 per l'utente). L'archivio viene mantenuto ordinato in base all'et\`a. Dopo ogni operazione il programma visualizza l'elenco ordinato attuale in quel momento.
+%Se si \`e raggiunto il numero massimo di persone in archivio, non viene effettuato l'inserimento. 
+%Se si cerca di eliminare un nominativo non presente (si vuole ad esempio eliminare il nominativo 35 ma ci sono solo 10 nominativi in archivio), l'operazione non viene effettuata.
+%Al termine, il programma salva sul file, la situazione attuale dell'archivio nominativi.
+%
+%Si dichiari un opportuno tipo di dati. Si strutturi il programma in sottoprogrammi per semplificare lo sviluppo (ad esempio \texttt{addPerson}, \texttt{delPerson}, \texttt{loadArchive}, \texttt{saveArchive}, ...). Tenere presente che in ogni istante \`e necessario conoscere il numero di persone in archivio, e tale informazione deve essere anche salvata/acquisita dal file dati.
+%
+%Per esempio, se un utente inserisse mediante l'opzione di aggiunta nominativi, uno per volta i seguenti dati:
+%
+%\begin{verbatim}
+%Alan
+%Turing
+%107
+%Blaise
+%Pascal
+%396
+%Kurt
+%Godel
+%113
+%Charles
+%Babbage
+%228
+%Larry
+%Page
+%46
+%Mark
+%Zuckerberg
+%35
+%Bill
+%Gates
+%64
+%Linus
+%Torvalds
+%49
+%Jeff
+%Bezos
+%55
+%\end{verbatim}
+%
+%
+%
+%il programma al termine visualizzerebbe (e salverebbe su file binario):
+%\begin{verbatim}
+%Mark Zuckerberg 35
+%Larry Page 46
+%Linus Torvalds 49
+%Jeff Bezos 55
+%Bill Gates 64
+%Alan Turing 107
+%Kurt Godel 113
+%Charles Babbage 228
+%Blaise Pascal 396
+%\end{verbatim}
+%
+%
+%%\getsol{srccode/elenco.c}
+%
+%\end{labex}

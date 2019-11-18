@@ -1,0 +1,48 @@
+\subsection{Visualizza in ordine inverso}\stepcounter{numex}
+Scrivere un programma che acquisisce una sequenza di valori interi a priori di lunghezza ignota e che si ritiene terminata quando l'utente inserisce il valore 0, e la visualizza in ordine inverso.
+
+\begin{tags}
+lista concatenata semplice\index{Lista concantenata semplice}. \texttt{push}\index{Lista concatenata semplice!\texttt{push}}. \texttt{emptylist}\index{Lista concatenata semplice!\texttt{emptylist}}. \texttt{printlist}\index{printlist@\texttt{list}}
+\end{tags}
+
+\getsol{srccode/list.reverseseq.c}
+
+\subsection{\texttt{push}}\stepcounter{numex}
+Scrivere un sottoprogramma \texttt{push} che ricevuta in ingresso una lista ed un valore intero, inserisce l'elemento \textit{in testa} alla lista.
+
+\getsol{srccode/list.push.sub.c}
+
+\begin{tags}
+\texttt{push}\index{Lista concatenata semplice!\texttt{push}}. \texttt{malloc}\index{malloc@\texttt{malloc}}. \texttt{sizeof}\index{sizeof@\texttt{sizeof}}.
+\end{tags}
+
+
+\subsection{\texttt{append}}\stepcounter{numex}
+Scrivere un sottoprogramma \texttt{append} che ricevuta in ingresso una lista ed un valore intero, inserisce l'elemento \textit{in coda} alla lista.
+
+\getsol{srccode/list.append.sub.c}
+
+\begin{tags}
+\texttt{append}\index{Lista concatenata semplice!\texttt{append}}. \texttt{malloc}\index{malloc@\texttt{malloc}}. \texttt{sizeof}\index{sizeof@\texttt{sizeof}}.
+\end{tags}
+
+
+\subsection{\texttt{emptylist}}\stepcounter{numex}
+Scrivere un sottoprogramma \texttt{emptylist} che ricevuta in ingresso una lista ne elimina il contenuto, restituendo la lista vuota.
+
+\getsol{srccode/list.emptylist.sub.c}
+
+\begin{tags}
+\texttt{emptylist}\index{Lista concatenata semplice!\texttt{emptylist}}. \texttt{free}\index{free@\texttt{free}}.
+\end{tags}
+
+
+\subsection{\texttt{itos}}\stepcounter{numex}
+Scrivere un sottoprogramma che ricevuta in ingresso una lista la restituisce dopo aver invertito l'ordine dei suoi elementi.
+
+\getsol{srccode/list.reverse.sub.c}
+
+\begin{tags}
+\texttt{emptylist}\index{Programmi lista concatenata semplice!Inverti elementi di lista}. 
+\end{tags}
+ 

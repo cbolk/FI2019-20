@@ -1,4 +1,4 @@
-\subsection{Conta vocaboli}
+\subsection{Conta vocaboli}\stepcounter{numex}
 Scrivere un programma che chiede all'utente il nome di un file (al pi\`u 40 caratteri) di testo e conta e visualizza il numero di parole presenti nel file. Le parole sono separate esclusivamente da spazi e sono al pi\`u di 32 caratteri.
 
 \begin{tags}
@@ -9,29 +9,60 @@ file ASCII. Accesso a file con contenuto di lunghezza non nota a priori.
 Quest'altra soluzione non funziona: si finisce in un ciclo infinito. Per quanto il file sia finito, l'istruzione \texttt{fscanf} non cessa di essere eseguita e legge sempre l'ultimo vocabolo, restituendo 1.
 \getsol{srccode/contavocabolifile_no.c}
 
-
-\subsection{Classifica iniziali di parole}
-Scrivere un programma che chiede all'utente il nome di un file (al pi\`u 40 caratteri) di testo e conta e visualizza il numero di parole che iniziano con ciascuna lettera dell'alfabeto. I caratteri contenuti nel file sono solo minuscoli. Le parole sono separate esclusivamente da spazi e sono al pi\`u di 32 caratteri. 
-Visualizzare il messaggio: 
-\begin{verbatim}
-parole che iniziano con a: 10
-parole che iniziano con b: 3
-parole che iniziano con e: 14
-\end{verbatim}
-Non visualizzare alcun messaggio per le lettere che non hanno parole nel testo.
+\subsection{Copia file lowercase}\stepcounter{numex}
+Scrivere un programma che chiede all'utente il nome di un file (al pi\`u 40 caratteri) di testo e scrive un nuovo file di testo, il cui nome \`e uguale a quello inserito con l'aggiunta del suffisso \texttt{"\_lowercase"}.
+Il contenuto del nuovo file deve essere identico a quello del file originale, ma con le lettere maiuscole trasformate in minuscole.
 
 \begin{tags}
-file ASCII. Accesso a file con contenuto di lunghezza non nota a priori. Contatori.
+file ASCII. Accesso a file con contenuto di lunghezza non nota a priori.
 \end{tags}
-\getsol{srccode/containizialivocabolifile.c}
+\getsol{srccode/filelowercase.c}
 
-\subsection{Date di Nascita}
+\subsection{Record di un Videogame}\stepcounter{numex}
+Abbiamo quasi terminato di implementare il nostro nuovo videogame, manca solo la possibilit\`a di memorizzare i migliori record.
+Il file del salvataggio, che sar\`a in formato binario, conterr\`a (in successione) il numero di record che sono salvati all'interno del file e l'elenco dei record.
 
-Scrivere un programma che legge dal file binario \texttt{date.bin} le date di nascita di 100 persone, memorizzate come tre interi che rappresentano il giorno, il mese e l'anno di nascita. Il programma chiede all'utente una data e conta e visualizza i) il numero di persone nate in quel giorno, e ii) il numero di persone che festeggiano insieme il compleanno in tale data, in base ai dati contenuti nel file \texttt{date.bin}. Il programma visualizza i due valori interi, separati da uno spazio e seguiti da un carattere a-capo '\textbackslash n'. Definire un tipo opportuno per rappresentare le date.
+Come ogni videogioco che si rispetti, a ogni record \`e associato il nome del suo autore, di esattamente 3 lettere, e il rispettivo punteggio. 
+Inoltre \`e possibile memorizzare al pi\`u i 10 record migliori.
+
+Definire un nuovo tipo di dato che possa contenere le informazioni riguardanti un record.
+Scrivere quindi i sottoprogrammi \texttt{load} e \texttt{save} che, dati il nome del file, l'array dei migliori record e tutti i parametri strettamente necessari:
+\begin{itemize}
+    \item legga dal file indicato i record (\texttt{load})
+    \item scriva i record nel file indicato (\texttt{save})
+\end{itemize}
+
+Facoltativo:
+Scrivere un sottoprogramma \texttt{insert} che, dato l'array dei migliori record, un nuovo record e tutti i parametri strettamente necessari, inserisca il nuovo record tra i migliori, se necessario.
 
 \begin{tags}
 file binario. \texttt{typedef}. \texttt{sizeof}.
 \end{tags}
 
-\getsol{srccode/datenascita.c}
+\getsol{srccode/videogame.c}
+
+%\subsection{Classifica iniziali di parole}\stepcounter{numex}
+%Scrivere un programma che chiede all'utente il nome di un file (al pi\`u 40 caratteri) di testo e conta e visualizza il numero di parole che iniziano con ciascuna lettera dell'alfabeto. I caratteri contenuti nel file sono solo minuscoli. Le parole sono separate esclusivamente da spazi e sono al pi\`u di 32 caratteri. 
+%Visualizzare il messaggio: 
+%\begin{verbatim}
+%parole che iniziano con a: 10
+%parole che iniziano con b: 3
+%parole che iniziano con e: 14
+%\end{verbatim}
+%Non visualizzare alcun messaggio per le lettere che non hanno parole nel testo.
+%
+%\begin{tags}
+%file ASCII. Accesso a file con contenuto di lunghezza non nota a priori. Contatori.
+%\end{tags}
+%\getsol{srccode/containizialivocabolifile.c}
+%
+%\subsection{Date di Nascita}\stepcounter{numex}
+%
+%Scrivere un programma che legge dal file binario \texttt{date.bin} le date di nascita di 100 persone, memorizzate come tre interi che rappresentano il giorno, il mese e l'anno di nascita. Il programma chiede all'utente una data e conta e visualizza i) il numero di persone nate in quel giorno, e ii) il numero di persone che festeggiano insieme il compleanno in tale data, in base ai dati contenuti nel file \texttt{date.bin}. Il programma visualizza i due valori interi, separati da uno spazio e seguiti da un carattere a-capo '\textbackslash n'. Definire un tipo opportuno per rappresentare le date.
+%
+%\begin{tags}
+%file binario. \texttt{typedef}. \texttt{sizeof}.
+%\end{tags}
+%
+%\getsol{srccode/datenascita.c}
 

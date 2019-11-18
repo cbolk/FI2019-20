@@ -1,0 +1,45 @@
+\begin{itemize}
+\item utilit\`a dei file, differenze tra file ASCII e file binari.
+\item accesso a file ASCII
+    \begin{itemize}
+    \item \texttt{FILE * fopen(char [], char []);}
+    \item \texttt{int fclose(FILE *);}
+    \item \texttt{int fscanf(FILE *, char [], ...);}
+    \item \texttt{int fprintf(FILE *, char [], ...);}
+    \item \texttt{char * fgets(char [], int, FILE *);}
+    \item \texttt{int feof(FILE *);}
+    \end{itemize}
+\item lettura fino alla fine del file:
+\begin{lstlisting}[language=c]
+fscanf(fp, "%c", &car);
+while(!feof(fp)){
+	/* utilizzo del valore letto e memorizzato in car */
+	/* ... */
+	fscanf(fp, "%c", &car);
+}
+\end{lstlisting}
+\item accesso a file binari
+	\begin{itemize}
+	\item \texttt{size\_t fread(void *ptr, size\_t size, size\_t nmemb, FILE *stream);}
+	\item \texttt{size\_t fwrite(const void *ptr, size\_t size, size\_t nmemb, FILE *stream);}
+	\end{itemize}
+\end{itemize}
+
+
+\subsection{Numeri pari e dispari}\stepcounter{numex}
+
+Scrivere un programma che legge 100 valori interi dal file di testo ASCII \texttt{./dati.txt} e scrive in numeri pari nel file \texttt{./pari.txt} e quelli dispari nel file \texttt{./dispari.txt}. 
+
+\getsol{srccode/fileparidispari.c}
+
+\subsection{Numeri pari e dispari binari}\stepcounter{numex}
+
+Scrivere un programma che legge 100 valori interi dal file binario \texttt{./dati.bin} e scrive in numeri pari nel file \texttt{./pari.txt} e quelli dispari nel file \texttt{./dispari.txt}. 
+
+\getsol{srccode/fileparidisparibin.c}
+
+\subsection{Numeri primi .. chiss\`a quanti}\stepcounter{numex}
+
+Scrivere un programma che legge dal file di testo ASCII \texttt{./dati.txt} numeri interi (non si sa quanti dati il file contiene) e scrive i numeri primi nel file \texttt{primi.txt}. 
+
+\getsol{srccode/fileprimi.c}

@@ -1,0 +1,45 @@
+\begin{itemize}
+\item allocazione dinamica: utilit\`a
+\item \texttt{malloc}
+\item \texttt{free}
+\item tipo \texttt{void *}
+\end{itemize}
+
+\subsection{Visualizza sequenza di numeri interi in ordine inverso}\stepcounter{numex}
+Scrivere un programma che chiede all'utente la quantit\`a \texttt{n} di valori interi che intende inserire, quindi acquisisce \texttt{n} e li visualizza in ordine inverso.
+
+\begin{tags}
+allocazione dinamica\index{Allocazione dinamica}. \texttt{malloc}\index{malloc@\texttt{malloc}}. \texttt{free}\index{free@\texttt{free}}. \texttt{sizeof}\index{sizeof@\texttt{sizeof}}.
+\end{tags}
+
+\getsol{srccode/visualizzaseqintinversa.c}
+
+\subsection{Stringa di vocali}\stepcounter{numex}
+Scrivere un sottoprogramma che ricevuta in ingresso una stringa, crea una nuova stringa contenente tutte e sole le vocali contenute nella stringa di ingresso -- di dimensioni strettamente idonee a contenere tale stringa -- e la restituisce al chiamante.
+
+\getsol{srccode/strvoc.c}
+
+
+\subsection{Primi nel file}\stepcounter{numex}
+Scrivere un sottoprogramma che ricevuto in ingresso il nome di un file restituisce al chiamante tutti i numeri primi in esso contenuti.
+
+\getsol{srccode/getprimesfromfile.c}
+
+versione in cui si usano due \texttt{return}\stepcounter{numex}
+
+\getsol{srccode/getprimesfromfile_v2.c}
+
+versione in cui si passano entrambi i parametri per indirizzo\stepcounter{numex}
+
+\getsol{srccode/getprimesfromfile_v3.c}
+
+versione in cui si crea una struttura dati e la si restituisce per valore\stepcounter{numex}
+
+\getsol{srccode/getprimesfromfile_v4.c}
+
+\prosep{}
+
+\subsection{Anagramma -- Proposto}\stepcounter{numexp}
+Scrivere un sottoprogramma che riceve in ingresso due stringhe (senz'altro di lunghezza uguale) erestituisce 1 se le stringhe sono una l'anagramma dell'altra, 0 altrimenti.
+
+\getsol{srccode/anagramma.sub.c}
