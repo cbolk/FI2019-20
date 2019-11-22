@@ -1,0 +1,66 @@
+\begin{itemize}
+\item variabili globali
+\end{itemize}
+
+\mysep{}
+
+\subsection{Da array a lista istogramma}\stepcounter{numex}
+Scrivere un sottoprogramma \texttt{array2istogramma} che riceve in ingresso un array di valori interi e qualsiasi altro parametro ritenuto strettamente necessario e restituisce una lista \textit{istogramma} che rappresenta un'unica volta tutti i valori presenti nell'array con il numero di occorrenze. La lista \`e ordinata in senso crescente rispetto ai valori (non rispetto al numero di occorrenze).
+
+Scrivere poi un programma che acquisisce da file binario \texttt{dati.bin} 100 valori interi, chiama il sottoprogramma \texttt{array2istogramma} e visualizza un istogramma orizzontale utilizzando il carattere \texttt{*}, ordinato prima rispetto al valore, poi ordinato in senso crescente in base al numero di occorrenze.
+
+Per esempio, se il file contiene i seguenti valori (20 per questioni di spazio):
+
+\begin{verbatim}
+4 5 1 2 6 8 9 1 7 2 4 5 6 1 4 8 2 0 3 11
+\end{verbatim}
+
+il programma visualizza:
+
+\begin{verbatim}
+0	: *
+1	: ***
+2	: ***
+3	: *
+4	: ***
+5	: **
+6	: **
+7	: *
+8	: **
+9	: *
+11	: *
+
+0	: *
+3	: *
+7	: *
+9	: *
+11	: *
+5	: **
+6	: **
+8	: **
+1	: ***
+2	: ***
+4	: ***
+\end{verbatim}
+
+\begin{tags}
+Lista concatenata semplice\index{Lista concatenata semplice}. Conta occorrenze\index{Programmi!Conta occorrenze}.
+\texttt{increasing}\index{Lista concatenata semplice!\texttt{increasing}}.
+\end{tags}
+
+\getsol{srccode/arr2histo.c}
+
+\subsection{Valori sotto la media}\stepcounter{numex}
+Scrivere un sottoprogramma che riceve in ingresso un array di valori interi e qualsiasi altro parametro ritenuto strettamente necessario e restituisce una lista contenente tutti e soli i valori dell'array che sono minori o uguali alla media dei valori contenuti nell'array stesso.
+
+\begin{tags}
+ista concatenata semplice. algoritmo. calcolo della media dei valori.
+\end{tags}
+
+\begin{esame}
+04/09/2015
+\end{esame}
+
+\getsol{srccode/listbelowavg.sub.c}
+
+ 

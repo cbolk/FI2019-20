@@ -1,0 +1,82 @@
+\begin{itemize}
+\item passo base
+\item passo induttivo
+\item condizione di termine della ricorsione
+\item stack delle chiamate
+\item visibilit\`a variabili locali
+\item variabili \texttt{static}
+\end{itemize}
+
+\mysep{}
+
+\subsection{Fattoriale -- versione ricorsiva}\stepcounter{numex}
+Scrivere un sottoprogramma ricorsivo che calcola e restituisce il fattoriale\index{Programmi!Fattoriale} di un intero.
+
+\begin{tags}
+sottoprogramma. ricorsione. 
+\end{tags}
+
+\getsol{srccode/fattoriale.subr.c}
+
+\subsection{Lunghezza di una lista -- versione ricorsiva}\stepcounter{numex}
+Scrivere un sottoprogramma ricorsivo che ricevuta in ingresso una lista, calcola e restituisce la sua lunghezza\index{Programmi lista concatenata semplice!Lunghezza di una lista}.
+
+\begin{tags}
+sottoprogramma. ricorsione\index{Ricorsione}. 
+\texttt{length}\index{Lista concatenata semplice!\texttt{length}}
+\end{tags}
+
+\getsol{srccode/strlen.subr.c}
+
+\subsection{Lunghezza di una stringa -- versione ricorsiva}\stepcounter{numex}
+Scrivere un sottoprogramma ricorsivo che ricevuta in ingresso una stringa, calcola e restituisce la sua lunghezza\index{Programmi!Lunghezza di una stringa}.
+
+\begin{tags}
+sottoprogramma. ricorsione\index{Ricorsione}. stringhe.
+\end{tags}
+
+\getsol{srccode/strlen.subr.c}
+
+\subsection{Carattere nella stringa -- versione ricorsiva}\stepcounter{numex}
+Scrivere un sottoprogramma ricorsivo che ricevuta in ingresso una stringa ed un carattere, calcola e restituisce il numero di volte che il carattere compare nella stringa.
+
+\begin{tags}
+sottoprogramma. ricorsione\index{Ricorsione}. stringhe. indirizzo di un elemento dell'array.
+\end{tags}
+
+\getsol{srccode/charinstr.subr.c}
+
+\subsection{Variabili \texttt{static}}
+Programma che chiama un sottoprogramma con una variabile dichiarata \texttt{static}\index{Variabili \texttt{static}}, che viene allocata non sullo stack e il cui valore \`e persistente rispetto a chiamate successive.
+
+\getsol{srccode/staticvar.c}
+
+\subsection{Scompatta lista}\stepcounter{numex}
+Scrivere un sottoprogramma \texttt{extract} che riceve in ingresso una lista per la gestione dei numeri interi, e un intero \texttt{start} che vale senz'altro o 0 o 1 (non \`e necessario gestire il caso in cui non sia cos\`i). La lista \textit{codifica} un'informazione binaria: il valore del primo elemento indica quante volte consecutive compare il bit \texttt{start}, il secondo elemento indica quante volte compare il complemento di \texttt{start}, il terzo elemento quante volte compare il bit  \texttt{start} e cos\`i fino alla fine.
+Il sottoprogramma scompatta tale informazione e restituisce \textbf{una nuova lista} i cui elementi contengono ciascuno 0 o 1. 
+
+Non \`e necessario definire due tipi diversi di dato, poich\`e il contenuto dell'elemento della lista \`e comunque sempre un intero. 
+
+Per esempio, se la lista in ingresso \`e quella di seguito riportata e \texttt{start} \`e 1:
+$$
+3 \rightarrow 5 \rightarrow 1 \rightarrow 2  \rightarrow 2 \rightarrow 1 \rightarrow|
+$$ 
+
+il sottoprogramma restituisce la lista seguente
+
+$$
+1 \rightarrow 1 \rightarrow 1 \rightarrow 0 \rightarrow 0 \rightarrow 0 \rightarrow 0 \rightarrow 0 \rightarrow 1 \rightarrow 0 \rightarrow 0 \rightarrow 1 \rightarrow 1 \rightarrow 0 \rightarrow|
+$$ 
+
+\begin{tags}
+lista concatenata semplice\index{lista concatenata semplice}. 
+\end{tags}
+
+\begin{esame}
+09/09/2019
+\end{esame}
+
+
+\getsol{srccode/20190909.liste.c}
+
+
