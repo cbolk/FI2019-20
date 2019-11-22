@@ -46,21 +46,27 @@ il programma visualizza:
 \begin{tags}
 Lista concatenata semplice\index{Lista concatenata semplice}. Conta occorrenze\index{Programmi!Conta occorrenze}.
 \texttt{increasing}\index{Lista concatenata semplice!\texttt{increasing}}.
+\texttt{sort}\index{Lista concatenata semplice!\texttt{sort}}.
 \end{tags}
 
 \getsol{srccode/arr2histo.c}
 
-\subsection{Valori sotto la media}\stepcounter{numex}
-Scrivere un sottoprogramma che riceve in ingresso un array di valori interi e qualsiasi altro parametro ritenuto strettamente necessario e restituisce una lista contenente tutti e soli i valori dell'array che sono minori o uguali alla media dei valori contenuti nell'array stesso.
+\subsection{Stringa moltiplicata}\stepcounter{numex}
+Scrivere un sottoprogramma \texttt{rep} che riceve in ingresso una stringa \texttt{s} e un intero \texttt{n} (senz'altro non negativo). Il sottoprogramma restituisce una \textbf{nuova} stringa ottenuta concatenando \texttt{n} copie di \texttt{s}. Ad esempio, se il sottoprogramma riceve in ingresso ``\texttt{esempio}'' e \texttt{3} restituisce la \textbf{nuova} stringa ``\texttt{esempioesempioesempio}'', se riceve ``\texttt{esempio}'' e \texttt{0} restituisce una stringa vuota.
+
+\textbf{Non \`e consentito l'uso dei sottoprogrammi di libreria quali \texttt{strcat()}, \texttt{strcpy()} e simili.}
+
+Scrivere il programma che acquisisce \textbf{da riga di comando} la stringa \texttt{s} e l'intero \texttt{n} -- utilizzando il sottoprogramma \texttt{rep} -- visualizza la nuova stringa.
 
 \begin{tags}
-ista concatenata semplice. algoritmo. calcolo della media dei valori.
+allocazione dinamica. stringhe.
 \end{tags}
 
 \begin{esame}
-04/09/2015
+19/02/2018 
 \end{esame}
 
-\getsol{srccode/listbelowavg.sub.c}
+\getsol{srccode/strmult.sub.c}
+
 
  

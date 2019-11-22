@@ -4,7 +4,8 @@
 \item scansione mediante due cicli annidati
 \item linearizzazione della memoria
 \end{itemize}
-\item \texttt{struct}    \begin{itemize}
+\item \texttt{struct}   
+	\begin{itemize}
 	\item nome facoltativo, ma sempre utilizzato
 	\item array di \texttt{struct}
 	\item \texttt{struct} con campo array
@@ -28,14 +29,14 @@
 Si scriva un programma che acquisisce i dati di una matrice di dimensione \texttt{5x5} di valori interi. Il programma visualizza 1 se si tratta di una matrice identit\`a, 0 altrimenti.
 
 \begin{tags}
-array bidimensionali. algoritmo.
+array bidimensionali. algoritmo.\index{Programmi!Matrice identit\`a}
 \end{tags}
 
-\lstinputlisting[language=c]{srccode/matidentita.c}
+\getsol{srccode/matidentita.c}
 
 \noindent\makebox[\linewidth]{\rule{\textwidth}{0.6pt}}
 
-\subsection{Date: definizione di tipo}
+\subsection{Date: definizione di tipo}\stepcounter{numex}
 Definire un nuovo tipo di dato, cui dare nome \texttt{date\_t} , per rappresentare date in termini di giorno, mese ed anno.
 \begin{tags}
 \texttt{typedef}\index{typedef@\texttt{typedef}}.
@@ -47,7 +48,7 @@ typedef struct date_s {
 } date_t;
 \end{lstlisting}
 
-\subsection{Studente: definizione di tipo}
+\subsection{Studente: definizione di tipo}\stepcounter{numex}
 Definire un nuovo tipo di dato, cui dare nome \texttt{student\_t} per rappresentare le informazioni seguenti relative ad uno studente:
 \begin{itemize}
 \item cognome e nome: due array di caratteri di 41 caratteri ciascuno

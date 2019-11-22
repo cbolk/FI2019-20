@@ -10,7 +10,7 @@
 \mysep{}
 
 \subsection{Fattoriale -- versione ricorsiva}\stepcounter{numex}
-Scrivere un sottoprogramma ricorsivo che calcola e restituisce il fattoriale\index{Programmi!Fattoriale} di un intero.
+Scrivere un sottoprogramma ricorsivo che calcola e restituisce il fattoriale\index{Sottoprogrammi!Fattoriale}\index{Sottoprogrammi ricorsivi!Fattoriale} di un intero.
 
 \begin{tags}
 sottoprogramma. ricorsione. 
@@ -19,7 +19,7 @@ sottoprogramma. ricorsione.
 \getsol{srccode/fattoriale.subr.c}
 
 \subsection{Lunghezza di una lista -- versione ricorsiva}\stepcounter{numex}
-Scrivere un sottoprogramma ricorsivo che ricevuta in ingresso una lista, calcola e restituisce la sua lunghezza\index{Programmi lista concatenata semplice!Lunghezza di una lista}.
+Scrivere un sottoprogramma ricorsivo che ricevuta in ingresso una lista, calcola e restituisce la sua lunghezza\index{Programmi lista concatenata semplice!Lunghezza di una lista}\index{Sottoprogrammi ricorsivi!Lunghezza di una lista}.
 
 \begin{tags}
 sottoprogramma. ricorsione\index{Ricorsione}. 
@@ -29,7 +29,7 @@ sottoprogramma. ricorsione\index{Ricorsione}.
 \getsol{srccode/strlen.subr.c}
 
 \subsection{Lunghezza di una stringa -- versione ricorsiva}\stepcounter{numex}
-Scrivere un sottoprogramma ricorsivo che ricevuta in ingresso una stringa, calcola e restituisce la sua lunghezza\index{Programmi!Lunghezza di una stringa}.
+Scrivere un sottoprogramma ricorsivo che ricevuta in ingresso una stringa, calcola e restituisce la sua lunghezza\index{Sottoprogrammi!Lunghezza di una stringa}\index{Sottoprogrammi ricorsivi!Lunghezza di una stringa}.
 
 \begin{tags}
 sottoprogramma. ricorsione\index{Ricorsione}. stringhe.
@@ -69,7 +69,7 @@ $$
 $$ 
 
 \begin{tags}
-lista concatenata semplice\index{lista concatenata semplice}. 
+lista concatenata semplice\index{Lista concatenata semplice}. 
 \end{tags}
 
 \begin{esame}
@@ -79,4 +79,12 @@ lista concatenata semplice\index{lista concatenata semplice}.
 
 \getsol{srccode/20190909.liste.c}
 
+\prosep{}
+
+\subsection{Paint ... semplificato -- Proposto}
+Si scriva un sottoprogramma \texttt{paint} che riceve in ingresso un array bidimesionale (con \texttt{NC} numero di colonne) e qualsiasi altro parametro ritenuto necessario, oltre a due interi \texttt{x} e \texttt{y} che sono le coordinate di un elemento dell'array. L'array contiene solo 0 e 1. Il sottoprogramma, modifica il valore dell'elemento di coordinate \texttt{x} e \texttt{y} mettendolo a 0, se vale 1, e propaga la trasformazione verso i 4 elementi adiacenti posti nelle posizioni a destra, sinistra, alto e in basso.
+
+\begin{tags}
+sottoprogramma. ricorsione. 
+\end{tags}
 
