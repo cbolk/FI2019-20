@@ -1,0 +1,81 @@
+\subsection{Crop}\stepcounter{numex}
+Scrivere un sottoprogramma crop che ricevuta in ingresso una stringa \texttt{frase} ed un carattere \texttt{ch} restituisce una nuova stringa che contiene i caratteri compresi tra la prima e la seconda occorrenza del carattere \texttt{ch}, incluso il carattere \texttt{ch}. Per esempio, se il sottoprogramma riceve in ingresso \texttt{informatica} e \texttt{i}, il sottoprogramma restituisce la stringa \texttt{informati}. 
+Nel caso in cui la stringa frase non contenga due occorrenze del carattere \texttt{ch}, restituisce \texttt{NULL}.
+​
+Scrivere un programma che acquisisce da riga di comando una stringa ed un carattere e chiama il sottoprogramma crop prima descritto e visualizza il risultato dell’elaborazione, quindi termina. 
+Un paio di esecuzioni, da riga di comando, di esempio sono:​
+\begin{verbatim}
+./ritagliastringa informatica a ​
+atica ​
+\end{verbatim}
+\begin{verbatim}
+./ritagliastringa collaudo x ​
+(null) ​
+\end{verbatim}
+
+\begin{tags}
+parametri da linea di comando. stringhe. allocazione dinamica.
+\end{tags}
+\getsol{srccode/crop.c}
+
+
+\subsection{Unisci liste ordinate}\stepcounter{numex}
+Scrivere un sottoprogramma che ricevute in ingresso due liste per la gestione di numeri interi, ciascuna delle quali ordinata in ordine crescente, crei una nuova lista contenente l'unione ordinata dei valori presenti nelle due liste, priva di ripetizioni e la restituisca al chiamante.
+
+Viene dato il seguente tipo di dato per trattare una lista di interi e la relativa funzione append che appende in coda alla lista:
+
+\begin{lstlisting}[language=c]
+typedef struct ilist_s {
+    
+    int val;
+    struct ilist_s * next;
+    
+} ilist_t;
+
+
+ilist_t * append(ilist_t *, int);
+\end{lstlisting}
+
+\begin{esame}
+18/02/2016
+\end{esame}
+
+\begin{tags}
+liste. unione. inserimento ordinato. elimina duplicati.
+\end{tags}
+\getsol{srccode/unisci-liste.c}
+
+
+\subsection{Genera numeri binari}\stepcounter{numex}
+Scrivere un sottoprogramma che visualizza tutti i numeri binari rappresentati da una stringa costituita dai valori \texttt{0, 1} e \texttt{x}, dove le \texttt{x} possono assumere valore sia \texttt{0} sia \texttt{1}. 
+Quindi, se il sottoprogramma riceve in ingresso la stringa \texttt{1x0} visualizza \texttt{100} e \texttt{110} (l’ordine non \`e importante).
+Scrivere un sottoprogramma genera che riceve in ingresso una stringa costituita esclusivamente di \texttt{0, 1} e \texttt{x} (\`e senz'altro cos\`i) e visualizza tutti i numeri binari rappresentabili.
+
+Scrivere anche una versione ricorsiva del sottoprogramma genera (\`e possibile aggiungere un eventuale parametro).
+
+\begin{esame}
+28/01/2019
+\end{esame}
+
+\begin{tags}
+numeri binari. ricorsione. stringhe.
+\end{tags}
+
+\getsol{srccode/generanumeribinari.c}
+
+
+\subsection{Trova somma}\stepcounter{numex}
+Scrivere un sottoprogramma che riceve in ingresso un array bidimensionale di interi \texttt{mat}, un intero \texttt{val} e qualsiasi parametro ritenuto strettamente necessario e trasmette al chiamate gli indici di riga e colonna che identificano la posizione del primo elemento (scandendo l'array per righe) che, sommato a tutti i suoi precedenti, dia come risultato un valore $>$ \texttt{val}.
+Nel caso in cui tal elemento non esista, si trasmettono i valori -1, -1. 
+Esiste una direttiva \texttt{\#define NCOL 10}.
+
+\begin{esame}
+18/02/2019
+\end{esame}
+
+\begin{tags}
+array bidimensionali.
+\end{tags}
+
+\getsol{srccode/trova-somma.c}
+

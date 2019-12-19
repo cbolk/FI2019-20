@@ -1,0 +1,166 @@
+
+\begin{exrev}{Cancella elementi frequenti dalla lista}
+
+Scrivere un sottoprogramma delfromlist che ricevuta in ingresso una lista per la gestione dei numeri interi ed un intero \textit{x}, elimini dalla lista tutti quegli elementi che compaiono almeno \textit{x} volte, e restituisca la lista. 
+
+Se per esempio il sottoprogramma riceve in ingresso la lista di seguito riportata ed il valore 3:
+
+$3 \rightarrow 3 \rightarrow 1 \rightarrow 2 \rightarrow 4 \rightarrow 3 \rightarrow 5 \rightarrow 3 \rightarrow 5 \rightarrow 4 \rightarrow |$
+
+il sottoprogramma restituisce la lista seguente:
+
+$1 \rightarrow 2 \rightarrow 4 \rightarrow 5 \rightarrow 5 \rightarrow 4 \rightarrow |$
+
+Definire un tipo di dato opportuno per la lista.
+
+Si considerino gi\`a disponibili (e quindi non da sviluppare) i sottoprogrammi seguenti:
+
+\begin{lstlisting}[language=c]
+/*inserisce in testa alla lista*/
+ilist_t * push(ilist_t *, int);
+
+/*inserisce in coda alla lista*/
+ilist_t * append(ilist_t *, int);
+
+/*elimina dalla lista il primo elemento*/
+ilist_t * pop(ilist_t *);
+
+/*elimina dalla lista tutti gli elementi con il valore indicato*/
+ilist_t * delete(ilist_t *, int);
+
+/*restituisce il riferimento all'elemento nella lista che ha il valore indicato, se esiste*/
+ilist_t * exists(ilist_t *, int);
+
+/*restituisce il numero di elementi nella lista*/
+int length(ilist_t *);
+
+/*elimina la lista*/
+ilist_t * emptylist(ilist_t *);
+\end{lstlisting}
+
+\begin{tags}
+liste. sottoprogrammi. \texttt{typedef}. eliminazione da lista.
+\end{tags}
+
+\begin{esame}
+17/06/2019
+\end{esame}
+
+\getsol{srccode/q5-20190617.c}
+
+\end{exrev}
+
+\begin{exrev}{Compatta lista}
+
+Scrivere un sottoprogramma \textit{compactlist} che ricevuta in ingresso una lista per la gestione dei numeri interi ne crei una nuova in cui per ogni valore presente nella lista in ingresso viene memorizzato anche il numero di volte in cui esso compare. La lista creata deve avere gli elementi ordinati in senso crescente rispetto al valore (e non al numero di occorrenze). La lista cos\`i creata viene restituita al chiamante.
+
+Per esempio, se la lista in ingresso \`e la seguente:
+
+$3 \rightarrow 3 \rightarrow 1 \rightarrow 2 \rightarrow 4 \rightarrow 3 \rightarrow -5 \rightarrow 3 \rightarrow -5 \rightarrow 4 \rightarrow |$
+
+il sottoprogramma restituisce la lista seguente:
+
+$-5,2 \rightarrow 1,1 \rightarrow 2,1 \rightarrow 3,4 \rightarrow 4,2 \rightarrow |$
+
+Definire i due tipi di lista necessari per la realizzazione del sottoprogramma
+
+Si considerino gi\`a disponibili (e quindi non da sviluppare) i sottoprogrammi seguenti, validi per qualsiasi tipo di lista che gestisca “almeno” un campo intero:
+
+\begin{lstlisting}[language=c]
+/*inserisce in testa alla lista*/
+listtype * push(listtype *, int);
+
+/*inserisce in coda alla lista*/
+listtype * append(listtype *, int);
+
+/*inserisce ordinatamente in lista, in base al valore crescente*/
+listtype * increasing(listtype *, int);
+
+/*inserisce ordinatamente in lista, in base al valore decrescente*/
+listtype * decreasing(listtype *, int);
+
+/*elimina dalla lista il primo elemento*/
+listtype * pop(listtype *);
+
+/*elimina dalla lista tutti gli elementi con il valore indicato*/
+listtype * delete(listtype *,int);
+
+/*restituisce il riferimento all'elemento nella lista che ha il valore indicato, se esiste, NULL altrimenti*/
+listtype * exists(ilist_t *, int);
+
+/*restituisce il numero di elementi nella lista*/
+int length(ilist_t *);
+
+/*elimina la lista*/
+listtype * emptylist(ilist_t *);
+\end{lstlisting}
+
+
+\begin{tags}
+liste. sottoprogrammi. \texttt{typedef}. creazione lista.
+\end{tags}
+
+\begin{esame}
+15/07/2019
+\end{esame}
+
+\getsol{srccode/q5-20190715.c}
+
+\end{exrev}
+
+\begin{exrev}{Somma e prodotto di polinomi}
+
+Si consideri il tipo di dato riportato di seguito, per rappresentare i termini di polinomi.
+
+\begin{lstlisting}[language=c]
+typedef struct _term {
+    int c; /* coefficiente */
+    int p; /* potenza */
+    struct _term * next;
+} t_term;
+\end{lstlisting}
+
+Scrivere i sottoprogrammi \textit{sum} e \textit{prod} che dati due polinomi in ingresso calcolino e restituiscano rispettivamente il polinomio somma e il polinomio prodotto. I polinomi ricevuti in ingresso hanno i termini ordinati per potenze decrescenti, e cos\`i devono essere anche i polinomi creati.
+
+Si preveda di disporre dei sottoprogrammi \textit{lunghezza, conta, instesta, inscoda, insord, esiste, del, svuotalista}, i cui prototipi (con anche i nomi dei parametri) e funzionalit\`a sono riportati di seguito. 
+
+I sottoprogrammi qua riportati si riferiscono - per semplicit\`a - al caso di lista per la gestione di dati interi: si immagini di disporre del sottoprogramma equivalente per la gestione di tipi di dati anche diversi, in base alle esigenze.
+
+\begin{lstlisting}[language=c]
+/* restituisce il numero di elementi presenti nella lista h */
+int lunghezza(t_elem * h);
+
+/* restituisce il numero di elementi presenti nella lista h con campo informazione val */
+int conta(t_elem * h, int val);
+
+/* crea un nuovo elemento con campo informazione val e lo inserisce in testa alla lista h, restituendo la testa */
+t_elem * instesta(t_elem * h, int val);
+
+/* crea un nuovo elemento di campo informazione val e lo inserisce in coda alla lista h, restituendo la testa */
+t_elem * inscoda(t_elem * h, int val);
+
+/* crea un nuovo elemento di campo informazione val e lo inserisce in nella lista h in ordine rispetto al campo intero, restituendo la testa */
+t_elem * insord(t_elem * h, int val);
+
+/* cerca nella lista h un termine con campo informazione val e se esiste restituisce il puntatore a tale termine altrimenti restituisce NULL */
+t_term * esiste(t_elem * h, int val);
+
+/* elimina dalla lista h un termine con campo informazione val e restituisce la testa della lista */
+t_term * del(t_elem * h, int val);
+
+/* svuota la lista h */
+void svuotalista(t_elem * h);
+\end{lstlisting}
+
+\begin{tags}
+liste. sottoprogrammi. polinomi.
+\end{tags}
+
+\begin{esame}
+03/07/2017
+\end{esame}
+
+\getsol{srccode/q6-20170703.c}
+
+\end{exrev}
+

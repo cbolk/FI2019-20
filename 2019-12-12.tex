@@ -1,0 +1,133 @@
+\subsection{ISBN-10}\stepcounter{numex}
+Scrivere un sottoprogramma \texttt{checkISBN10} che riceve in ingresso una stringa che rappresenta un codice ISBN-10 (International Standard Book Number) di 10 cifre numeriche separate da \texttt{-}, utilizzato per identificare univocamente un volume prima del 2007 (dal 2007 in poi il numero \`e di 13 cifre). Il sottoprogramma restituisce 1 se il codice ISBN \`e valido, 0 altrimenti.
+Un codice ISBN-10 \`e valido se la somma delle somme \`e un multiplo di 11. La somma delle somme si calcola addizionando ogni cifra del codice alla somma delle precedenti cifre.
+\\ \\
+Esempi:
+\\
+Ingresso: \texttt{0-306-40615-2}
+Cifre: \texttt{0 3 0 6 4 0 6 1 5 2}
+Somma delle cifre: \texttt{0 3 3 9 13 13 19 20 25 27}
+Somma delle somme: \texttt{132}
+Uscita: \texttt{1}
+\\
+Ingresso: \texttt{0-07-881809-4}
+Cifre: \texttt{0 0 7 8 8 1 8 0 9 4}
+Somma delle cifre: \texttt{0 0 7 15 23 24 32 32 41 45}
+Somma delle somme: \texttt{219}
+Uscita: \texttt{0}
+\\ \\
+Scrivere il programma che acquisisce da riga di comando la stringa dell’ISBN-10 e - utilizzando il sottoprogramma checkISBN10 - visualizza 1 se il codice \`e corretto, 0 altrimenti.
+
+\begin{esame}
+26/01/2018
+\end{esame}
+
+\begin{tags}
+stringhe. sottoprogrammi. argomenti da riga di comando.
+\end{tags}
+
+\getsol{srccode/isbn10.sub.c}
+
+
+\subsection{Elimina le sottosequenze}\stepcounter{numex}
+Definire un tipo di dato opportuno \texttt{clist\_t} per realizzare una lista dinamica che gestisce caratteri (ogni elemento un carattere) e serve per gestire sequenze di caratteri. Si definisce sottosequenza una sequenza di caratteri compresa tra una parentesi tonda iniziale \texttt{(} e una finale \texttt{)}.
+Le sottosequenze possono anche essere vuote (parentesi aperta e poi chiusa senza altri caratteri intermedi). 
+Scrivere un sottoprogramma riceve in ingresso una lista che costituisce una sequenza e la restituisce dopo aver sostituito le sottosequenze con il carattere \texttt{\#}.
+
+La sequenza dei caratteri in ingresso \`e ben formata, ossia:
+\begin{itemize}
+    \item per ogni parentesi tonda che si apre, c'\`e una parentesi tonda che si chiude
+    \item non ci sono intersezioni tra coppie di parentesi.
+\end{itemize}
+Per esempio, \texttt{ab(acg)be()a(xx)f} \`e una sequenza ben formata, \texttt{ab(a(c)g)b} e \texttt{aba(c)g)b} non lo sono.
+Se il sottoprogramma riceve in ingresso la sequenza \texttt{ab(acg)be()a(xx)f(a)}, restituisce la sequenza \texttt{ab(\#)be(\#)a(\#)f(\#)}.
+\\
+Si considerino gi\`a disponibili e non da sviluppare i sottoprogrammi seguenti:
+\\
+\begin{lstlisting}[language=c]
+/* inserisce in testa alla lista */
+clist_t * push(clist_t *, char);
+
+/* inserisce in coda alla lista */
+clist_t * append( clist_t * , char );
+
+/* elimina dalla lista il primo elemento */
+clist_t * pop(clist_t *);
+
+/* elimina dalla lista tutti gli elementi con il valore indicato */
+clist_t * delete(clist_t *, char);
+
+/* restituisce il riferimento all'elemento nella lista che ha il valore indicato, se esiste */
+clist_t * exists(clist_t * , char );
+
+/* restituisce il numero di elementi nella lista */
+int length(clist_t *);
+\end{lstlisting}
+
+\begin{esame}
+19/02/2019
+\end{esame}
+
+\begin{tags}
+liste.
+\end{tags}
+
+\getsol{srccode/sottosequenze.sub.c}
+
+
+\subsection{Conta le vette}\stepcounter{numex}
+Scrivere un sottoprogramma ricorsivo che ricevuto in ingresso un array di interi (e qualsiasi altro parametro ritenuto strettamente necessario) restituisce il numero di \textit{vette} in esso presenti. Si definisce \textit{vetta} un valore presente nell'array maggiore di tutti i valori successivi presenti nell'array. L'ultimo valore dell'array, per definizione, non \`e una \textit{vetta}.
+Scrivere quindi un programma che acquisisce in ingresso un array di 10 interi e stampa il rispettivo numero di \textit{vette}.
+
+\begin{esame}
+18/02/2016
+\end{esame}
+
+\begin{tags}
+ricorsione. sottoprogrammi. array.
+\end{tags}
+
+\getsol{srccode/vette.sub.c}
+
+
+\subsection{Da intero a lista}\stepcounter{numex}
+Scrivere un sottoprogramma \texttt{int2list} che ricevuto in ingresso un numero intero restituisce una lista in cui ogni cifra del numero in ingresso compare tante volte quanto il suo valore. 
+Nel caso in cui il valore ricevuto in ingresso sia negativo, il sottoprogramma restituisce la lista creata a partire dalla cifre in ordine opposto.
+
+Se per esempio il sottoprogramma riceve in ingresso l'intero 3204, il sottoprogramma restituisce la lista seguente:
+$3 \rightarrow 3 \rightarrow 3 \rightarrow 2 \rightarrow 2 \rightarrow 4 \rightarrow 4 \rightarrow 4 \rightarrow 4 \rightarrow |$
+
+
+Se per esempio il sottoprogramma riceve in ingresso l'intero -3204, il sottoprogramma restituisce la lista seguente:
+$4 \rightarrow 4 \rightarrow 4 \rightarrow 4 \rightarrow 2 \rightarrow 2 \rightarrow 3 \rightarrow 3 \rightarrow 3 \rightarrow |$
+
+
+Definire inoltre un tipo di dato opportuno per la lista.
+
+
+\begin{esame}
+18/02/2019
+\end{esame}
+
+\begin{tags}
+liste. allocazione dinamica.
+\end{tags}
+
+\getsol{srccode/inttolist.sub.c}
+
+
+\subsection{Cifra pi\`u frequente}\stepcounter{numex}
+Scrivere un sottoprogramma che riceve in ingresso un riferimento ad un file (gi\`a aperto) e legge un valore intero (se c'\`e ...) e restituisce la cifra del valore letto che in esso compare pi\`u di frequente. Nel caso in cui non ci sia un valore, restituisce -1. 
+Nel caso ci siano pi\`u cifre che compaiono lo stesso numero di volte, restituisce quella pi\`u alta.
+Se per esempio legge il valore 217319 restituisce 1, se legge il valore 1002932 restituisce 2.
+
+\begin{esame}
+28/01/2019
+\end{esame}
+
+\begin{tags}
+file. sottoprogrammi.
+\end{tags}
+
+\getsol{srccode/cifrafrequente.sub.c}
+

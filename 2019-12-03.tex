@@ -1,0 +1,42 @@
+\begin{itemize}
+\item acquisizione dati da riga di comando
+    \begin{itemize}
+    \item \texttt{argv}
+    \item \texttt{argc}
+    \end{itemize}
+\item variabili globali
+\end{itemize}
+
+\mysep{}
+
+\subsection{\texttt{genera}}\stepcounter{numex}
+Scrivere un programma che acquisisce da riga di comando una stringa e chiama il sottoprogramma \texttt{genera}.
+
+\begin{esame}
+28/01/2019
+\end{esame}
+
+\begin{tags}
+argomenti da riga di comando.
+\end{tags}
+
+\getsol{srccode/argcargv.genera.c}
+
+\subsection{conta primi}\stepcounter{numex}
+Scrivere una variante del programma sopra richiesto, che acquisisca da riga di comando il nome del file sia il nome del file iniziale, sia quello del file in cui salvare il risultato dell'elaborazione. Un'esecuzione, da riga di comando, di esempio \`e:
+\begin{verbatim}
+contaprimi ./dati.txt ./risultati.txt
+\end{verbatim}
+Limitarsi alla parte di dichiarazione delle variabili e all'acquisizione dei dati per poter poi procedere nell'algoritmo.
+
+\begin{esame}
+17/06/2019
+\end{esame}
+
+\begin{tags}
+argomenti da riga di comando.
+\end{tags}
+
+\getsol{srccode/argcargv.countprimi.c}
+
+

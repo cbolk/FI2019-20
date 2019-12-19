@@ -1,0 +1,84 @@
+\subsection{Fibonacci}\stepcounter{numex}
+
+La successione di Fibonacci \`e cos\`i definita: $F(0) = 0, F(1) = 1, F(n) = F(n-1) + F(n-2)$ per ogni $n > 1$.
+Scrivere due versioni di un sottoprogramma, una che sfrutta la ricorsione, mentre l'altra no, che riceve in ingresso un intero n e restituisce l'n-esimo valore nella successione di Fibonacci.
+
+Scrivere quindi un programma che chiede all'utente un intero $n \geq 0$, richiedendo l'inserimento finch\`e il vincolo viene rispettato, e stampa l'$n$-esimo valore nella sequenza di Fibonacci calcolato utilizzando una delle due versioni definite precedentemente.
+
+\begin{tags}
+ricorsione. sottoprogrammi.
+\end{tags}
+
+\getsol{srccode/fibonacci.c}
+
+
+\subsection{Conta iniziali vocaboli di un file}\stepcounter{numex}
+
+Scrivere un programma che chiede all'utente il nome di un file (al pi\`u 40 caratteri) di testo e conta e visualizza il numero di parole che iniziano con ciascuna lettera dell'alfabeto. 
+I caratteri contenuti nel file sono solo minuscoli. 
+Le parole sono separate esclusivamente da spazi e sono al pi\`u di 32 caratteri. 
+
+Visualizzare il messaggio:
+\begin{itemize}
+    \item parole che iniziano con a: 10
+    \item parole che iniziano con b: 3
+    \item parole che iniziano con e: 14
+\end{itemize}
+
+Non visualizzare alcun messaggio per le lettere che non hanno parole nel testo.
+
+\begin{tags}
+file. stringhe.
+\end{tags}
+
+\getsol{srccode/containizialivocabolifile.c}
+
+\subsection{Mergesort}\stepcounter{numex}
+
+Il mergesort \`e un algoritmo di ordinamento che, dato un array, ripete i seguenti passi:
+\begin{itemize}
+    \item viene diviso in due parti l'array ricevuto in ingresso;
+    \item ogni parte viene ordinata applicando ricorsivamente l'algoritmo;
+    \item le due parti vengono fuse insieme estraendo ripetutamente il minimo da esse, in modo da ottenere una fusione ordinata.
+\end{itemize}
+
+Scrivere un sottoprogramma che riceve in ingresso un array di interi da ordinare e tutti i parametri aggiuntivi che si ritengono necessari ed esegue un merge sort su di esso.
+
+Scrivere quindi un programma che riceve in ingresso 10 numeri interi e li stampa ordinati in modo crescente.
+
+\begin{tags}
+ricorsione. array. sottoprogrammi. algoritmi di ordinamento.
+\end{tags}
+
+\getsol{srccode/mergesort.c}
+
+
+\subsection{Date di nascita}\stepcounter{numex}
+
+Scrivere un programma che legge dal file binario \texttt{date.bin} le date di nascita di 100 persone, memorizzate come tre interi che rappresentano il giorno, il mese e l'anno di nascita. 
+Il programma chiede all'utente una data e conta e visualizza, in base ai dati contenuti nel file \texttt{date.bin}:
+\begin{itemize}
+    \item il numero di persone nate in quel giorno;
+    \item il numero di persone che festeggiano insieme il compleanno in tale data.
+\end{itemize}
+Il programma visualizza i due valori interi, separati da uno spazio e seguiti da un carattere a-capo.
+ 
+Definire un tipo opportuno per rappresentare le date.
+
+\begin{tags}
+file binari. \texttt{typedef}.
+\end{tags}
+
+\getsol{srccode/datenascita.c}
+
+
+\subsection{Paint}\stepcounter{numex}
+Si scriva un sottoprogramma \texttt{paint} che riceve in ingresso un array bidimesionale (con \texttt{NC} numero di colonne) e qualsiasi altro parametro ritenuto necessario, oltre a due interi \texttt{x} e \texttt{y} che sono le coordinate di un elemento dell'array. L'array contiene solo 0 e 1. 
+Il sottoprogramma, se l'elemento di coordinate \texttt{x} e \texttt{y} vale 1, modifica il suo valore mettendolo a 0, e propaga la trasformazione verso i 4 elementi adiacenti posti nelle posizioni a destra, sinistra, alto e in basso.
+
+\begin{tags}
+ricorsione. array bidimensionali.
+\end{tags}
+
+\getsol{srccode/paint.c}
+

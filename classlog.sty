@@ -46,11 +46,12 @@
 \definecolor{backcolour}{rgb}{0.99,0.99,0.99}
 \definecolor{codesyntax}{rgb}{0.77,0.04,0.04}
 \definecolor{TheLez}{RGB}{1,80,138}	
-\definecolor{TheEx}{RGB}{29,68,10} 
+\definecolor{TheEx}{RGB}{0,160,62} 
 \definecolor{TheExFlipped}{RGB}{124,173,241} 
 \definecolor{TheLab}{rgb}{0.8,0.51,0.02} 
 \definecolor{TheApp}{RGB}{222,67,7} 
 \definecolor{TheSos}{RGB}{162,169,175}
+\definecolor{TheBoh}{RGB}{19,51,76}
  
 \lstdefinestyle{cstyle}{
 	basicstyle=\ttfamily\footnotesize,
@@ -151,6 +152,7 @@
 %F: flipped exe
 %A: appello
 %X: sospensione
+%W: no label
 
 \RequirePackage{ifthen}
 \newcommand{\foo}[4]{%
@@ -200,8 +202,15 @@
                      \addcontentsline{toc}{section}{{\color{TheApp}#3 $\mid$ Appello del #2}}
                 	}
                 	{% SOSPENSIONE
-                     %\tocless\section{Sospensione lezione #2}\stepcounter{app}
-                     \addcontentsline{toc}{section}{{\color{TheSos}#3 $\mid$ Lezione sospesa: #2}}
+                        \ifthenelse{\equal{#1}{X}}
+                        {
+                         %\tocless\section{Lezione sospesa #2}\stepcounter{app}
+                         \addcontentsline{toc}{section}{{\color{TheSos}#3 $\mid$ Lezione sospesa #2}}
+                        }
+                        {% SOSPENSIONE
+                         \tocless\section{#2}
+                         \addcontentsline{toc}{section}{{\color{TheBoh}#3 $\mid$ #2}}
+                        }                     
                 	}                     
                 }
 
