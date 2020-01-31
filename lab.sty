@@ -103,12 +103,6 @@
 
 %% FROM main.tex
 
-\renewenvironment{shaded}{%
-  \def\FrameCommand{\fboxsep=\FrameSep \colorbox{shadecolor}}%
-  \MakeFramed{\advance\hsize-\width \FrameRestore\FrameRestore}}%
- {\endMakeFramed}
-
-
 
 \newenvironment{tags}[1][198,226,255]{
   \definecolor{shadecolor}{RGB}{#1}%

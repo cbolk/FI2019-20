@@ -1,0 +1,314 @@
+%
+%% This is file `classlog.sty`,
+%%
+%% This style file changes the appearance of the pages to improve
+%% the aesthetics of PhD theses (in my opinion =)
+%%
+%% Copyright (C) 2017  Cristiana Bolchini
+%%
+%%
+%%  This program is free software: you can redistribute it and/or modify
+%%  it under the terms of the GNU General Public License as published by
+%%  the Free Software Foundation, either version 3 of the License, or
+%%  (at your option) any later version.
+%%
+%%  This program is distributed in the hope that it will be useful,
+%%  but WITHOUT ANY WARRANTY; without even the implied warranty of
+%%  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%%  GNU General Public License for more details.
+%%
+%%  You should have received a copy of the GNU General Public License
+%%  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%%
+
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{classlog}[2007/09/11 v1.0 CBolk Style for Class notes with code]
+
+\renewcommand{\familydefault}{cmss} %{pag} %{\sfdefault}
+
+\RequirePackage{microtype}			% typographic tuning
+\RequirePackage{setspace}			% for line spacing, e.g. \onehalfspacing
+
+\RequirePackage{caption}
+\captionsetup{format=plain,indention=.5cm,singlelinecheck=false,font={small},labelfont=bf,labelsep=endash,textfont=it,justification=centering}
+
+\setlength{\parindent}{0pt}
+
+%%% Formatting C code
+\RequirePackage{listings}
+\RequirePackage{color}
+\RequirePackage{courier}
+
+\definecolor{codegreen}{rgb}{0,0,0.6}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{TheSub}{rgb}{0.30,0.30,0.30}
+\definecolor{codepurple}{rgb}{0.04,0.33,0.32}
+\definecolor{backcolour}{rgb}{0.99,0.99,0.99}
+\definecolor{codesyntax}{rgb}{0.77,0.04,0.04}
+\definecolor{TheLez}{RGB}{1,80,138}	
+\definecolor{TheEx}{RGB}{0,160,62} 
+\definecolor{TheExFlipped}{RGB}{124,173,241} 
+\definecolor{TheLab}{rgb}{0.8,0.51,0.02} 
+\definecolor{TheApp}{RGB}{222,67,7} 
+\definecolor{TheSos}{RGB}{162,169,175}
+\definecolor{TheBoh}{RGB}{19,51,76}
+ 
+\lstdefinestyle{cstyle}{
+	basicstyle=\ttfamily\footnotesize,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{codesyntax},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=t,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=cstyle}
+
+
+%% section titles
+%% now change the section heading to have a line beneath it
+%% load up the fancy title-style package
+
+
+\RequirePackage{hanging}
+\RequirePackage[calcwidth,noindentafter,center]{titlesec}
+\titleformat{\section}[block]{\centering\color{TheLez}\usefont{T1}{lmss}{b}{n}\selectfont}
+{\large}{5pt}{\large}[{}]
+
+\titleformat{\subsubsection}[block]{\color{TheSub}\usefont{T1}{lmss}{b}{n}\selectfont}
+{}{2em}{}[{}]
+\titlespacing*{\subsubsection}{0pt}{*0}{0pt}
+
+%\titleformat{name=\section}
+%  {\normalfont\Large\bfseries}{\thesection}{2em}{\hspace{-1em}}{}
+
+\renewcommand{\thesection}{\arabic{section}}
+
+\newcommand{\sectionbreak}{\clearpage}
+
+\newcounter{ex}
+\setcounter{ex}{1}
+
+\newcounter{exfl}
+\setcounter{exfl}{1}
+
+\newcounter{lab}
+\setcounter{lab}{0}
+
+\newcounter{lez}
+\setcounter{lez}{0}
+
+\newcounter{ri}
+\setcounter{ri}{1}
+
+\newcounter{al}
+\setcounter{al}{1}
+
+\newcounter{app}
+\setcounter{app}{1}
+
+\newcounter{allexs}
+\setcounter{allexs}{1}
+
+\newcounter{numex}
+\renewcommand*{\thenumex}{%
+  \textbf{%
+    \ifnum\value{numex}<100 0\fi
+    \ifnum\value{numex}<10 0\fi
+    \arabic{numex}%
+  }%
+}
+
+\newcounter{numexp}
+\renewcommand*{\thenumexp}{%
+  \textbf{%
+    \ifnum\value{numexp}<100 0\fi
+    \ifnum\value{numexp}<10 0\fi
+    \arabic{numexp}%
+  }%
+}
+
+
+
+%%not to add a section in the toc
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+
+
+
+%Z: lezione
+%E: esercitazione
+%F: flipped exe
+%A: appello
+%X: sospensione
+%W: no label
+
+\RequirePackage{ifthen}
+\newcommand{\foo}[4]{%
+    \ifthenelse{\equal{#1}{L}}
+    {%LAB
+        \tocless\section{Laboratorio \thelab~$\diamond$ #2}\stepcounter{lab}
+        \addcontentsline{toc}{section}{{\color{TheLab}#3 $\mid$ Laboratorio: #2}}
+    }
+    {%EXE - LEZ - FLIPPED - APPELLO - SOSPENSIONE
+        %LEZ - EXE - FLIPPED - APPELLO - SOSPENSIONE
+       \ifthenelse{\equal{#1}{Z}}
+       {%LEZ
+            \ifthenelse{\not\equal{#4}{}}
+             {\tocless\section{Lezione \thelez~$\diamond$ #2}\stepcounter{lez}
+             \addcontentsline{toc}{section}{{\color{TheLez}#3 $\mid$ Lezione: #2 {\small$\bowtie$}}}
+             }
+             {\tocless\section{Lezione \thelez~$\diamond$ #2}\stepcounter{lez}
+             \addcontentsline{toc}{section}{{\color{TheLez}#3 $\mid$ Lezione: #2}}
+             }
+       }
+       {%EXE - FLIPPED  - APPELLO - SOSPENSIONE
+            \ifthenelse{\equal{#1}{E}}
+            {%EXE
+                \ifthenelse{\not\equal{#4}{}}
+                 {\tocless\section{Esercitazione \theex~$\diamond$ #2}\stepcounter{ex}
+                 \addcontentsline{toc}{section}{{\color{TheEx}#3 $\mid$ Esercitazione: #2 {\small$\bowtie$}}}
+                 }
+                 {\tocless\section{Esercitazione \theex~$\diamond$ #2}\stepcounter{ex}
+                 \addcontentsline{toc}{section}{{\color{TheEx}#3 $\mid$ Esercitazione: #2}}
+                 }
+            }
+            {%FLIPPED - APPELLO - SOSPENSIONE
+                \ifthenelse{\equal{#1}{F}}
+                {
+                    \ifthenelse{\not\equal{#4}{}}
+                     {\tocless\section{Analisi esercizi \theexfl~$\diamond$ #2}\stepcounter{exfl}
+                     \addcontentsline{toc}{section}{{\color{TheExFlipped}#3 $\mid$ Analisi esercizi: #2 {\small$\bowtie$}}}
+                     }
+                     {\tocless\section{Analisi esercizi \theexfl~$\diamond$ #2}\stepcounter{exfl}
+                     \addcontentsline{toc}{section}{{\color{TheExFlipped}#3 $\mid$ Analisi esercizi: #2}}
+                     }
+                }
+                {% APPELLO - SOSPENSIONE
+                	\ifthenelse{\equal{#1}{A}}
+                	{
+                     \tocless\section{Appello del #2}\stepcounter{app}
+                     \addcontentsline{toc}{section}{{\color{TheApp}#3 $\mid$ Appello del #2}}
+                	}
+                	{% SOSPENSIONE
+                        \ifthenelse{\equal{#1}{X}}
+                        {
+                         %\tocless\section{Lezione sospesa #2}\stepcounter{app}
+                         \addcontentsline{toc}{section}{{\color{TheSos}#3 $\mid$ Lezione sospesa #2}}
+                        }
+                        {% SOSPENSIONE
+                         \tocless\section{#2}
+                         \addcontentsline{toc}{section}{{\color{TheBoh}#3 $\mid$ #2}}
+                        }                     
+                	}                     
+                }
+
+            }
+        }
+    }
+  \ifthenelse{\not\equal{#1}{A}}
+  {
+      \ifthenelse{\not\equal{#4}{}}
+      {
+        \begin{flushright}{#3 (#4)}\end{flushright}      
+      }
+      {
+        \begin{flushright}{#3}\end{flushright}            
+      }
+  }
+  {
+    %nothing
+  }
+
+	\ifthenelse{\not\equal{#1}{A}}
+	{
+        %\stepcounter{allexs}
+		%\renewcommand{\thesubsection}{\thesection.subsection}
+		\titleformat{\subsection}[hang]{\color{TheLez}\usefont{T1}{lmss}{b}{n}\selectfont}
+		{Esercizio}{4pt}{\thesubsection:~}[{}]
+
+		%\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+		\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+	
+	}
+	{
+		%\renewcommand{\thesubsection}{-subsection-}
+		\titleformat{\subsection}[hang]{\color{TheApp}\usefont{T1}{lmss}{b}{n}\selectfont}
+		{Quesito}{4pt}{}[{}]
+
+		%\titleformat{\subsubsection}[hang]{\color{TheApp}\usefont{T1}{lmss}{}{n}\selectfont}
+		%{}{4pt}{}[{}]
+
+		%\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+		\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+    }
+}
+
+
+
+%%% counters
+
+%\RequirePackage{titletoc}
+\RequirePackage{tocloft}
+
+%\newcommand{\cftXaftersnum}{0}
+
+\RequirePackage{fancyhdr}
+
+%% now reset the headers and footers
+\fancyhead{}
+\fancyfoot{}
+%\renewcommand{\chaptermark}[1]{\markboth{\thechapter~-~ #1}{}}
+%% make the odd pages have the section name on the top right
+%\fancyhead[RO]{\sffamily\bfseries\nouppercase{\rightmark}}
+%\fancyhead[RO]{\fontfamily{lmss}\selectfont\scriptsize{\rightmark}}
+%% make the even pages have the chapter name on the top left
+%\fancyhead[LE]{\fontfamily{lmss}\selectfont\scriptsize\selectfont{\leftmark}}
+
+%% Add author name and institution to the bottom of the page
+%\fancyfoot[RE,LO]{\textit{\@author}}
+%\fancyfoot[CE,CO]{\small{Politecnico di Milano}}
+%\fancyfoot[CE,CO]{\thepage}
+
+\fancypagestyle{main}{
+	\fancyhead{}
+	\fancyfoot[CE,CO]{\small{\thepage}}
+	%\fancyfoot[RE,LO]{\textit{\@author}}
+	%\fancyfoot[CE,CO]{\small{Politecnico di Milano}}
+	%\fancyfoot[RO]{\psboxit{box 1 setgray fill}
+	%{\hspace{\textwidth}\psboxit{box 0.8 setgray fill}
+	%{\framebox[10mm][c]{\rule{0cm}{4mm}\color{black}{\bfseries \thepage}}}}}
+	%\renewcommand{\headrulewidth}{0.25pt}
+	\renewcommand{\footrulewidth}{0.25pt}
+	\renewcommand{\footruleskip}{0.1mm}
+}
+
+%% Item list
+\RequirePackage{enumerate}
+\RequirePackage[inline]{enumitem}
+\setlist[itemize,1]{label=$\diamond$}
+\setlist[itemize,2]{label=$\circ$,topsep=0pt,itemsep=-1pt}
+\renewcommand{\@listI}{%
+\leftmargin=20pt
+\rightmargin=0pt
+\labelsep=5pt
+\labelwidth=10pt
+\itemindent=0pt
+\listparindent=0pt
+\topsep=0pt plus 1pt minus 4pt
+\partopsep=0pt plus 0pt minus 1pt
+\parsep=0pt plus 0pt
+\itemsep=\parsep}
+
+%\renewcommand{\theenumi}{\arabic}
